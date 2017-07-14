@@ -1,0 +1,8 @@
+﻿###
+OneBranch Specific
+###
+
+# Build generated files in src
+/**/**/**/objd/**/*
+/**/**/**/obj/**/*
+/**/**/**/bin/**/*
