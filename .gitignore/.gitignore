@@ -1,0 +1,44 @@
+- Copy (2).gitconfig
+         - Copy.gitconfig
+        .bash_history
+        .config/
+        .dnx/
+        .gitconfig
+        .nuget/
+        .soapuios/
+        .viminfo
+        .vs/
+        3D Objects/
+        AppData/
+        AzureStorageEmulatorDb45.mdf
+        AzureStorageEmulatorDb45_log.ldf
+        Contacts/
+        Desktop/
+        Documents/
+        Downloads/
+        Favorites/
+        Links/
+        Music/
+        NTUSER.DAT
+        NTUSER.DAT{93e7a991-23c9-11e7-9fd0-8cdf35303d5a}.TM.blf
+        NTUSER.DAT{93e7a991-23c9-11e7-9fd0-8cdf35303d5a}.TMContainer00000000000000000001.regtrans-ms
+        NTUSER.DAT{93e7a991-23c9-11e7-9fd0-8cdf35303d5a}.TMContainer00000000000000000002.regtrans-ms
+        NTUSER.DAT{a1004249-3512-11e7-9c1f-ecb1d73b45da}.TM.blf
+        NTUSER.DAT{a1004249-3512-11e7-9c1f-ecb1d73b45da}.TMContainer00000000000000000001.regtrans-ms
+        NTUSER.DAT{a1004249-3512-11e7-9c1f-ecb1d73b45da}.TMContainer00000000000000000002.regtrans-ms
+        ODBA/
+        OneDrive - Microsoft/
+        Pictures/
+        Saved Games/
+        Searches/
+        SoapUI-Tutorials/
+        Source/
+        Videos/
+        Yahoo Credit Hold Accounts.xlsx
+        certenroll.log
+        default-soapui-workspace.xml
+        ntuser.dat.LOG1
+        ntuser.dat.LOG2
+        ntuser.ini
+        ntuser.pol
+        soapui-settings.xml
