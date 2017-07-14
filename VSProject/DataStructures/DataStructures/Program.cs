@@ -12,7 +12,7 @@ namespace DataStructures
         {
             while (true)
             {
-                Console.WriteLine("\nEnter Choice:\n\t1.LinkedList\n\t2.LinkedList\n\t3.LinkedList\n\t0:Exit");
+                Console.WriteLine("\nEnter Choice:\n\t1.LinkedList\n\t2.LinkedList\n\t3.LinkedList\n\t4.LinkedList\n\t0:Exit");
                 var input = Console.ReadLine();
                 switch (input)
                 {
@@ -23,6 +23,9 @@ namespace DataStructures
                         LinkedListDemo.Start();
                         break;
                     case "3":
+                        LinkedListDemo.Start();
+                        break;
+                    case "4":
                         LinkedListDemo.Start();
                         break;
                     case "0":
