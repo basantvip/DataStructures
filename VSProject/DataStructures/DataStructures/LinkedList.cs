@@ -74,20 +74,22 @@ namespace DataStructures
         #endregion
 
         #region Remove
-        public void RemoveFirst()
+        public T RemoveFirst()
         {
-            if (this.Head == null) return;
+            if (this.Head == null) return default(T);
+            var temp = this.Head.Value;
             this.Head = this.Head.Next;
             this.Count--;
+            return temp;
         }
 
-        public void RemoveLast()
+        public T RemoveLast()
         {
             if (this.Head == null || this.Head.Next == null)
             {
                 this.Head = null;
                 this.Count = 0;
-                return;
+                return default(T);
             }
             var curr = this.Head;
             var next = curr.Next;
@@ -96,8 +98,10 @@ namespace DataStructures
                 curr = next;
                 next = next.Next;
             }
+            var temp = curr.Next.Value;
             curr.Next = null;
             this.Count--;
+            return temp;
         }
 
         #endregion
@@ -117,6 +121,14 @@ namespace DataStructures
             }
             if (this.Head != null)
                 Console.WriteLine($" => Head: {this.Head.Value}, Count: {this.Count}");
+        }
+
+        public static void PrintListReverse (Node<T> head)
+        {
+            if (head == null)
+                return;
+            PrintListReverse(head.Next);            
+            Console.Write($"{head.Value},");
         }
 
         #region ICollection
