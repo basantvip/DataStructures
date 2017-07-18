@@ -105,7 +105,10 @@ namespace DataStructures
         public void PrintList()
         {
             if (this.Head == null)
+            {
                 Console.WriteLine("List Empty");
+                return;
+            }
             var temp = this.Head;
             while (temp != null)
             {
@@ -122,8 +125,7 @@ namespace DataStructures
         {
             var temp = this.Head;
             while (temp != null)
-            {
-                Console.Write($"{temp.Value}");
+            {                
                 yield return temp;
                 temp = temp.Next;
             }
@@ -142,7 +144,12 @@ namespace DataStructures
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this.GetEnumerator();
+            var temp = this.Head;
+            while (temp != null)
+            {
+                yield return temp.Value;
+                temp = temp.Next;
+            }
         }
 
         public void Add(T item)
@@ -208,11 +215,8 @@ namespace DataStructures
 
         public int Count { get; private set; }
         public bool IsReadOnly => false;
-    }
 
-    public class LinkedListDemo
-    {
-        public static void Start()
+        public static void Demo()
         {
             var mylist = new LinkedList<object>();
             mylist.PrintList();
@@ -225,10 +229,17 @@ namespace DataStructures
             mylist.AddFirst("Agrawal");
             mylist.PrintList();
 
-            var arr = new object[10];
-            mylist.CopyTo(arr,arr.Length);
+            Console.WriteLine("printing for each");
+            foreach (var item in mylist)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("for each completed");
 
-            Console.WriteLine( arr[6]);
+            var arr = new object[10];
+            mylist.CopyTo(arr, arr.Length);
+
+            Console.WriteLine(arr[6]);
             mylist.Remove("Basant");
             mylist.PrintList();
             while (mylist.Count > 0)
@@ -238,4 +249,5 @@ namespace DataStructures
             }
         }
     }
+    
 }
