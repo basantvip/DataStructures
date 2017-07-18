@@ -234,7 +234,7 @@ namespace DataStructures
             {
                 Console.WriteLine(item);
             }
-            Console.WriteLine("for each completed");
+            Console.WriteLine("for each completed..");
 
             var arr = new object[10];
             mylist.CopyTo(arr, arr.Length);
