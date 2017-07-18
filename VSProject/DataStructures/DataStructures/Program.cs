@@ -25,7 +25,7 @@ namespace DataStructures
                     case "3":
                         LinkedListDemo.Start();
                         break;
-                    case "5":
+                    case "6":
                         LinkedListDemo.Start();
                         break;
                     case "0":
