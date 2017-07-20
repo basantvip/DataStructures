@@ -148,7 +148,6 @@ namespace DataStructures
             var temp = this.Head;
             while (temp != null)
             {
-                Console.Write($"{temp.Value}");
                 yield return temp.Value;
                 temp = temp.Next;
             }
@@ -238,7 +237,7 @@ namespace DataStructures
             mylist.AddLast(4);
             mylist.AddLast(6);
             mylist.AddLast("Basant");
-            mylist.AddFirst("Agrawal");
+            mylist.AddFirst("abc");
             mylist.PrintList();
 
             Console.WriteLine("printing for each");
