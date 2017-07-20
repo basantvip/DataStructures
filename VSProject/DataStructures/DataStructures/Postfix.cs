@@ -14,11 +14,13 @@ namespace DataStructures
 
             while (true)
             {
-                Console.Write("\nEnter Postfix String (0 or Enter to exit): ");
+                Console.Write("\nEnter Space Separated Postfix String (0 or Enter to exit): ");
                 var postfixString = Console.ReadLine()??"0";
-                if  (postfixString.Trim() == "0")
+                if  (postfixString.Trim() == "0" || postfixString.Trim() == "")
                     return;
                 var postfixList = postfixString.Split(' ');
+
+                var validString = true;
 
                 foreach (var token in postfixList)
                 {
@@ -33,17 +35,20 @@ namespace DataStructures
                             stack.Push(Apply(op1, op2, token).ToString());
                             break;
                         case "Invalid Token":
-                            throw new Exception("Invalid Token");
+                            Console.WriteLine("Invalid character in postfix string");
+                            validString = false;
+                            break;
                     }
                 }
+                if (validString)
                 Console.WriteLine($"Result: {stack.Pop()}");
             }
         }
 
         public static string GetTokenType(string token)
         {
-            int tokenvalue;
-            if (int.TryParse(token, out tokenvalue))
+            double tokenvalue;
+            if (double.TryParse(token, out tokenvalue))
                 return "Operand";
             else if (token == "+" || token == "-" || token == "*" || token == "/")
                 return "Operator";
@@ -52,9 +57,9 @@ namespace DataStructures
 
         public static string Apply(string operand1, string operand2, string Operator)
         {
-            int op1, op2;
-            int.TryParse(operand1, out op1);
-            int.TryParse(operand2, out op2);
+            double op1, op2;
+            double.TryParse(operand1, out op1);
+            double.TryParse(operand2, out op2);
             switch (Operator)
             {
                 case "+":
