@@ -90,6 +90,15 @@ namespace BinaryTree
                 return FindMin(root.Left);
             }
 
+            public static Node FindMax(Node root)
+            {
+                if (root == null)
+                    return null;
+                if (root.Right == null)
+                    return root;
+                return FindMax(root.Right);
+            }
+
             public void DeleteNode(int value)
             {
                 bool IsFound;
@@ -123,8 +132,9 @@ namespace BinaryTree
                 }
                 else //found exact match
                 {
-                    //No leaf node
                     found = true;
+
+                    //leaf node
                     if (root.Left == null && root.Right == null)
                         return null;
 
@@ -143,6 +153,26 @@ namespace BinaryTree
                     return root;
                 }
             }
+            //public int InOrderSuccessor(int value)
+            //{
+            //    if (Root == null)
+            //        return -999;
+            //    if (Root.Right <
+
+            //}
+
+            //private static int InOrderSuccessor(Node root, int value)
+            //{
+            //    if (root == null)
+            //        return -999;
+            //    if (root.Value >= value)
+            //        return InOrderSuccessor(root.Left, value);
+
+            //    if (root.Value < value)
+            //        return InOrderSuccessor(root.Right, value);
+
+
+            //}
 
 
         }
@@ -166,7 +196,8 @@ namespace BinaryTree
             Console.WriteLine($"Contains 30: {tree.Contains(30)}");
             Console.WriteLine($"Contains 4: {tree.Contains(4)}");            
             Console.WriteLine($"Minimum: {BinaryTree.FindMin(tree.Root).Value}");
-            
+            Console.WriteLine($"Maximum: {BinaryTree.FindMax(tree.Root).Value}");
+
             while (tree.Root != null)
             {
                 int value = rnd.Next(1, 10);
