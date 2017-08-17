@@ -189,6 +189,26 @@ namespace BinaryTree
                 return next;                
             }
 
+            public int Height()
+            {
+                if (this.Root == null)
+                    return 0;
+                return BinaryTree.Height(this.Root);
+            }
+
+            public static int Height(Node root)
+            {
+                int leftHeight, rightheight;
+                if (root == null)
+                    return - 1;
+
+                leftHeight = Height(root.Left);
+                rightheight = Height(root.Right);
+
+                return (leftHeight > rightheight ? leftHeight + 1: rightheight + 1);
+
+
+            }
 
         }
         static void Main(string[] args)
@@ -207,6 +227,9 @@ namespace BinaryTree
                 tree.AddNode(value);
             }
             tree.PrintInFix();
+
+            Console.WriteLine($"Tree Height: {tree.Height()}");
+
             Console.WriteLine($"Contains 200: {tree.Contains(200)}");
             Console.WriteLine($"Contains 30: {tree.Contains(30)}");
             Console.WriteLine($"Contains 4: {tree.Contains(4)}");            
