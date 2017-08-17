@@ -18,6 +18,11 @@ namespace BinaryTree
             {
                 this.Value = value;
             }
+
+            public override string ToString()
+            {
+                return $"{Value.ToString()} -> ";
+            }            
         }
 
         public class BinaryTree
@@ -66,19 +71,22 @@ namespace BinaryTree
 
             public bool Contains(int value)
             {
-                return Contains(this.Root, value);
+                if (FindNode(this.Root, value) != null)
+                    return true;
+                else
+                    return false;
             }
 
-            private bool Contains(Node root, int value)
+            private static Node FindNode(Node root, int value)
             {
                 if (root == null)
-                    return false;
+                    return null;
                 if (root.Value == value)
-                    return true;
+                    return root;
                 if (root.Value >= value)
-                    return Contains(root.Left, value);
+                    return FindNode(root.Left, value);
                 else
-                    return Contains(root.Right, value);
+                    return FindNode(root.Right, value);
             }
 
             public static Node FindMin(Node root)
@@ -147,32 +155,39 @@ namespace BinaryTree
                         return root.Right;
 
                     //has both left and right node
-                    var temp = FindMin(root.Right);
+                    var temp = FindMin(root.Right); //find max in left subtree or mim in right subtree
                     root.Value = temp.Value;
                     root.Right = DeleteNode(root.Right, temp.Value,out found);
                     return root;
                 }
             }
-            //public int InOrderSuccessor(int value)
-            //{
-            //    if (Root == null)
-            //        return -999;
-            //    if (Root.Right <
+            public Node InOrderSuccessor(int value)
+            {
+                if (this.Root == null)
+                    return null;
+                var valueNode = FindNode(this.Root, value);
 
-            //}
+                if (valueNode == null)
+                    return null;
 
-            //private static int InOrderSuccessor(Node root, int value)
-            //{
-            //    if (root == null)
-            //        return -999;
-            //    if (root.Value >= value)
-            //        return InOrderSuccessor(root.Left, value);
+                if (valueNode.Right != null)
+                    return FindMin(valueNode.Right);
 
-            //    if (root.Value < value)
-            //        return InOrderSuccessor(root.Right, value);
+                Node current = this.Root;
+                Node next = null;
+                while (current != valueNode)
+                {
+                    if (current.Value > value)
+                    {
+                        next = current;
+                        current = current.Left;
+                    }
+                    else
+                        current = current.Right;
+                }
 
-
-            //}
+                return next;                
+            }
 
 
         }
@@ -197,6 +212,15 @@ namespace BinaryTree
             Console.WriteLine($"Contains 4: {tree.Contains(4)}");            
             Console.WriteLine($"Minimum: {BinaryTree.FindMin(tree.Root).Value}");
             Console.WriteLine($"Maximum: {BinaryTree.FindMax(tree.Root).Value}");
+
+            for (int i = 0; i < 20; i++)
+            {            
+                int value = rnd.Next(1, 20);               
+                var node = tree.InOrderSuccessor(value);
+                var nodevalue = node != null ? node.ToString() : "None";
+                Console.WriteLine($"Successor of {value} is {nodevalue}");
+            }
+            Console.ReadLine();
 
             while (tree.Root != null)
             {
