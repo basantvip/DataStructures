@@ -61,7 +61,7 @@ namespace BinaryTree
 
             public void PrintInFix()
             {
-                Console.WriteLine($"\nItems Count:{this.Count}");
+                Console.Write($"InFix({this.Count} Items):");                
                 PrintInFix(this.Root);
                 Console.WriteLine();
             }
@@ -73,6 +73,38 @@ namespace BinaryTree
                 PrintInFix(root.Left);
                 Console.Write($"{root.Value.ToString()} -> ");
                 PrintInFix(root.Right);                
+            }
+
+            public void PrintPreFix()
+            {
+                Console.Write($"PreFix({this.Count} Items):");
+                PrintPreFix(this.Root);
+                Console.WriteLine();
+            }
+
+            private static void PrintPreFix(Node root)
+            {
+                if (root == null)
+                    return;
+                Console.Write($"{root.Value.ToString()} -> ");
+                PrintPreFix(root.Left);                
+                PrintPreFix(root.Right);
+            }
+
+            public void PrintPostFix()
+            {
+                Console.Write($"PostFix({this.Count} Items):");
+                PrintPostFix(this.Root);
+                Console.WriteLine();
+            }
+
+            private static void PrintPostFix(Node root)
+            {
+                if (root == null)
+                    return;                
+                PrintPostFix(root.Left);
+                PrintPostFix(root.Right);
+                Console.Write($"{root.Value.ToString()} -> ");
             } 
 
             public bool Contains()
@@ -241,6 +273,46 @@ namespace BinaryTree
 
                 return (leftHeight > rightheight ? leftHeight + 1: rightheight + 1);
 
+            }
+            public void BFS()
+            {
+                var queue = new Queue<Node>();
+                if (this.Root != null)
+                    queue.Enqueue(Root);
+                while (queue.Count > 0)
+                {
+                    var s = queue.Dequeue();
+                    Console.Write($"{s.ToString()} -> ");
+                    if (s.Left != null)
+                        queue.Enqueue(s.Left);
+                    if (s.Right != null)
+                        queue.Enqueue(s.Right);
+                }
+                Console.WriteLine();
+
+            }
+
+            public void BFS_Invert()
+            {
+                var queue = new Queue<Node>();
+                var stack = new Stack<Node>();
+                if (this.Root != null)
+                    queue.Enqueue(Root);
+                while (queue.Count > 0)
+                {
+                    var s = queue.Dequeue();
+                    stack.Push(s);
+                    if (s.Right != null)
+                        queue.Enqueue(s.Right);
+                    if (s.Left != null)
+                        queue.Enqueue(s.Left);                    
+                }
+                while(stack.Count > 0)
+                {
+                    Console.Write($"{stack.Pop().ToString()} -> ");
+                }
+                
+                Console.WriteLine();
 
             }
 
@@ -253,7 +325,7 @@ namespace BinaryTree
 
             while (true)
             {
-                Console.Write("\n\t1.Print Infix\n\t2.Print Prefix\n\t3.Print Postfix\n\t4.Show Height\n\t5.Check Contains\n\t6.Find Min\n\t7.Find max\n\t8.InOrder Successor\n\t9.Delete a Node\n\t0:Exit\nEnter Choice: ");
+                Console.Write("\n\t1.Print Infix, 2.Print Prefix, 3.Print Postfix\n\t4.Show Height\n\t5.Check Contains\n\t6.Find Min\n\t7.Find max\n\t8.InOrder Successor\n\t9.Delete a Node\n\t10.BFS, 11. BFS Invert\n\t0:Exit\nEnter Choice: ");
                 var input = Console.ReadLine();
                 switch (input)
                 {
@@ -261,10 +333,10 @@ namespace BinaryTree
                         tree.PrintInFix();
                         break;
                     case "2":
-                        tree.PrintInFix();
+                        tree.PrintPreFix();
                         break;
                     case "3":
-                        tree.PrintInFix();
+                        tree.PrintPostFix();
                         break;
                     case "4":
                         tree.Height();
@@ -284,12 +356,16 @@ namespace BinaryTree
                     case "9":
                         tree.DeleteNode();
                         break;
+                    case "10":
+                        tree.BFS();
+                        break;
+                    case "11":
+                        tree.BFS_Invert();
+                        break;
                     case "0":
                         return;
                 }
-            }
-
-            Console.ReadLine();
+            }            
         }
     }
 }
