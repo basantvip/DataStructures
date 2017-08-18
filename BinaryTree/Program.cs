@@ -35,10 +35,16 @@ namespace BinaryTree
                 Count = 0; 
             }            
 
-            public void AddNode(int value)
+            public void AddNodes()
             {
-                this.Root = AddNode(this.Root, value);
-                this.Count++;
+                Console.Write("\nEnter comma Separated node elements:");
+                var binaryTreeString = Console.ReadLine();                
+                var binaryTreeElements = binaryTreeString.Split(',');
+                foreach (var item in binaryTreeElements)
+                {
+                    this.Root = AddNode(this.Root, int.Parse(item));
+                    this.Count++;
+                }                
             }
 
             private static Node AddNode (Node root, int value)
@@ -69,12 +75,13 @@ namespace BinaryTree
                 PrintInFix(root.Right);                
             } 
 
-            public bool Contains(int value)
+            public bool Contains()
             {
-                if (FindNode(this.Root, value) != null)
-                    return true;
-                else
-                    return false;
+                Console.WriteLine("Enter value to search");
+                var value = int.Parse(Console.ReadLine());
+                bool contains = FindNode(this.Root, value) != null ? true: false;                
+                Console.WriteLine($"Contains {value}: {contains}");
+                return contains;
             }
 
             private static Node FindNode(Node root, int value)
@@ -87,6 +94,17 @@ namespace BinaryTree
                     return FindNode(root.Left, value);
                 else
                     return FindNode(root.Right, value);
+            }
+            
+            
+            public void FindMin()
+            {
+                Console.WriteLine($"Minimum: {BinaryTree.FindMin(this.Root).Value}");
+            }
+
+            public void FindMax()
+            {
+                Console.WriteLine($"Maximum: {BinaryTree.FindMax(this.Root).Value}");
             }
 
             public static Node FindMin(Node root)
@@ -107,13 +125,16 @@ namespace BinaryTree
                 return FindMax(root.Right);
             }
 
-            public void DeleteNode(int value)
+            public void DeleteNode()
             {
+                Console.WriteLine("Enter a value to delete");
+                var value = int.Parse(Console.ReadLine());
                 bool IsFound;
                 this.Root = DeleteNode(this.Root, value, out IsFound);
                 if (IsFound)
                 {
-                    Console.WriteLine($"Found value {value}");
+                    Console.WriteLine($"Deleted value {value}");
+                    PrintInFix();
                     this.Count--;
                 }
                 else
@@ -161,39 +182,52 @@ namespace BinaryTree
                     return root;
                 }
             }
-            public Node InOrderSuccessor(int value)
+            public Node InOrderSuccessor()
             {
+                Console.WriteLine("Enter value to find successor");
+                var value = int.Parse(Console.ReadLine());
+
+                Node successorNode;
+                Node valueNode = null;
                 if (this.Root == null)
-                    return null;
-                var valueNode = FindNode(this.Root, value);
+                    successorNode = null;
+                else 
+                    valueNode = FindNode(this.Root, value);
 
                 if (valueNode == null)
-                    return null;
+                    successorNode = null;
 
-                if (valueNode.Right != null)
-                    return FindMin(valueNode.Right);
-
-                Node current = this.Root;
-                Node next = null;
-                while (current != valueNode)
+                else if (valueNode.Right != null)
+                    successorNode = FindMin(valueNode.Right);
+                else
                 {
-                    if (current.Value > value)
+                    Node current = this.Root;
+                    Node next = null;
+                    while (current != valueNode)
                     {
-                        next = current;
-                        current = current.Left;
+                        if (current.Value > value)
+                        {
+                            next = current;
+                            current = current.Left;
+                        }
+                        else
+                            current = current.Right;
                     }
-                    else
-                        current = current.Right;
-                }
 
-                return next;                
+                    successorNode = next;
+                }
+                var nodevalue = successorNode != null ? successorNode.ToString() : "None";
+                Console.WriteLine($"Successor of {value} is {nodevalue}");
+                return successorNode;
             }
 
             public int Height()
             {
                 if (this.Root == null)
                     return 0;
-                return BinaryTree.Height(this.Root);
+                var height = BinaryTree.Height(this.Root);
+                Console.WriteLine($"Tree Height: {height}");
+                return height;
             }
 
             public static int Height(Node root)
@@ -214,42 +248,45 @@ namespace BinaryTree
         static void Main(string[] args)
         {
             BinaryTree tree = new BinaryTree();
-            Random rnd = new Random();
-            for (int i = 0; i < 9; i++)
+            
+            tree.AddNodes();
+
+            while (true)
             {
-                int value = rnd.Next(1, 10);
-                if (tree.Contains(value))
+                Console.Write("\n\t1.Print Infix\n\t2.Print Prefix\n\t3.Print Postfix\n\t4.Show Height\n\t5.Check Contains\n\t6.Find Min\n\t7.Find max\n\t8.InOrder Successor\n\t9.Delete a Node\n\t0:Exit\nEnter Choice: ");
+                var input = Console.ReadLine();
+                switch (input)
                 {
-                    i--;
-                    continue;
+                    case "1":
+                        tree.PrintInFix();
+                        break;
+                    case "2":
+                        tree.PrintInFix();
+                        break;
+                    case "3":
+                        tree.PrintInFix();
+                        break;
+                    case "4":
+                        tree.Height();
+                        break;
+                    case "5":
+                        tree.Contains();
+                        break;
+                    case "6":
+                        tree.FindMin();
+                        break;
+                    case "7":
+                        tree.FindMax();
+                        break;
+                    case "8":
+                        tree.InOrderSuccessor();
+                        break;
+                    case "9":
+                        tree.DeleteNode();
+                        break;
+                    case "0":
+                        return;
                 }
-                Console.Write($"{value},");
-                tree.AddNode(value);
-            }
-            tree.PrintInFix();
-
-            Console.WriteLine($"Tree Height: {tree.Height()}");
-
-            Console.WriteLine($"Contains 200: {tree.Contains(200)}");
-            Console.WriteLine($"Contains 30: {tree.Contains(30)}");
-            Console.WriteLine($"Contains 4: {tree.Contains(4)}");            
-            Console.WriteLine($"Minimum: {BinaryTree.FindMin(tree.Root).Value}");
-            Console.WriteLine($"Maximum: {BinaryTree.FindMax(tree.Root).Value}");
-
-            for (int i = 0; i < 20; i++)
-            {            
-                int value = rnd.Next(1, 20);               
-                var node = tree.InOrderSuccessor(value);
-                var nodevalue = node != null ? node.ToString() : "None";
-                Console.WriteLine($"Successor of {value} is {nodevalue}");
-            }
-            Console.ReadLine();
-
-            while (tree.Root != null)
-            {
-                int value = rnd.Next(1, 10);
-                tree.DeleteNode(value);
-                tree.PrintInFix();
             }
 
             Console.ReadLine();
