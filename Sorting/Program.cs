@@ -12,8 +12,18 @@ namespace Sorting
         {
             //Console.WriteLine("Enter input list of integers separated by space or comma");
             //var list = (Console.ReadLine() ?? "").Replace(',', ' ').Split(' ').Select(int.Parse).ToList();
+            //var list = new List<int>() { 1, 2, 10, 4, 3 };
 
-            var list = new List<int>() { 1, 2, 10, 4, 3 };
+            var list = new List<int>();
+            var r = new Random();
+            while(list.Count<=10)
+            {
+                var next = r.Next(11);
+                if (list.Contains(next))
+                    continue;
+                list.Add(next);
+            }
+
             Console.Write("Input List: ");
             PrintList(list);
 
