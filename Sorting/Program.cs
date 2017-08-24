@@ -10,14 +10,22 @@ namespace Sorting
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter input list of integers separated by space or comma");
-            var list = (Console.ReadLine() ?? "").Replace(',', ' ').Split(' ').Select(int.Parse).ToList();
+            //Console.WriteLine("Enter input list of integers separated by space or comma");
+            //var list = (Console.ReadLine() ?? "").Replace(',', ' ').Split(' ').Select(int.Parse).ToList();
+
+            var list = new List<int>() { 1, 2, 10, 4, 3 };
             Console.Write("Input List: ");
             PrintList(list);
-            Console.Write("BubbleSort: ");
+
+            Console.Write("Bubble Sort: ");
             PrintList(BubbleSort(list));
-            Console.Write("EffecientBubbleSort: ");
+
+            Console.Write("Effecient Bubble Sort: ");
             PrintList(EffecientBubbleSort(list));
+
+            Console.Write("Selection Sort: ");
+            PrintList(SelectionSort(list));
+
             Console.ReadLine();
         }
 
@@ -33,9 +41,7 @@ namespace Sorting
                     rounds++;
                     if (returnList[j] > returnList[j + 1])
                     {
-                        var temp = returnList[j];
-                        returnList[j] = returnList[j + 1];
-                        returnList[j + 1] = temp;
+                        Swap(returnList, j, j + 1);
                     }
                 }
             }
@@ -57,11 +63,28 @@ namespace Sorting
                     if (returnList[j] > returnList[j + 1])
                     {
                         sorted = false;
-                        var temp = returnList[j];
-                        returnList[j] = returnList[j + 1];
-                        returnList[j + 1] = temp;
+                        Swap(returnList, j, j + 1);
                     }
                 }
+            }
+            Console.WriteLine($"Rounds: {rounds}");
+            return returnList;
+        }
+
+        public static List<int> SelectionSort(List<int> list)
+        {
+            var returnList = new List<int>(list);
+            var rounds = 0;
+
+            for (var i = 0; i < returnList.Count - 1; i++)
+            {
+                rounds++;
+                var minIndex = GetMinIndex(returnList, i, ref rounds);
+                if (minIndex > i)
+                {
+                    Swap(returnList,i,minIndex);
+                }
+                
             }
             Console.WriteLine($"Rounds: {rounds}");
             return returnList;
@@ -73,6 +96,31 @@ namespace Sorting
             if (s.StartsWith(","))
                 s = s.Substring(1, s.Length - 1);
             Console.WriteLine(s);
+        }
+
+        public static int GetMinIndex(List<int> list,int startIndex,ref int rounds)
+        {
+            var minIndex = startIndex;
+            var minValue = list[startIndex];
+            for (var i = startIndex + 1; i < list.Count; i++)
+            {
+                rounds++;
+                if (minValue > list[i])
+                {
+                    minValue = list[i];
+                    minIndex = i;
+                }
+            }
+            return minIndex;
+
+        }
+
+        public static void Swap(List<int> list, int i, int j)
+        {
+            var temp = list[i];
+            list[i] = list[j];
+            list[j] = temp;
+            
         }
     }
 }
