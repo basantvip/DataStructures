@@ -45,6 +45,108 @@ namespace LinkedList
             }
         }
 
+        public static void InfixToPostfix()
+        {            
+            while (true)
+            {
+                var stack = new Stack<char>();
+                var queue = new Queue<char>();
+                var validString = true;
+                Console.Write("\nEnter InFix string:");
+                var inFixString = Console.ReadLine() ?? "0";
+                if (inFixString.Trim() == "0" || inFixString.Trim() == "")
+                    return;
+                foreach (var token in inFixString)
+                {
+                    switch (GetTokenType(token))
+                    {
+                        case "Operand":
+                            queue.Enqueue(token);
+                            break;
+                        case "Operator":
+                            var weight = OperatorWeight(token);
+
+                            while (stack.Count > 0)
+                            {
+                                var s1 = stack.Peek();
+
+                                if (GetTokenType(s1) != "Operator" || OperatorWeight(s1) < weight)
+                                    break;
+
+                                queue.Enqueue(stack.Pop());
+
+                            }
+                            stack.Push(token);
+                            break;                            
+                        case "Paranthesis Start":
+                            stack.Push(token);
+                            break;
+                        case "Paranthesis End":
+                            var s = GetStartParanthesis(token);
+                            while (stack.Count > 0)
+                            {
+                                var a = stack.Pop();                                
+                                if (a == s)
+                                    break;
+                                queue.Enqueue(a);
+                            }
+                            break;
+                        case "Invalid Token":
+                            Console.WriteLine("Invalid character in input string");
+                            validString = false;
+                            break;
+                    }
+                }
+                while (stack.Count > 0)
+                    queue.Enqueue(stack.Pop());
+
+                if (validString)
+                {
+
+                    string s = new string(queue.ToArray());
+                    Console.WriteLine($"Result: {s}");
+                }
+            }
+        }
+
+        public static string GetTokenType(char s)
+        {
+            if ((s >= 'a' && s <= 'z') || (s >= 'A' && s <= 'Z') || (s >= '0' && s <= '9'))
+                return "Operand";
+            else if (s == '+' || s == '-' || s == '*' || s == '/')
+                return "Operator";
+            else if (s == '(' || s == '{' || s == '[')
+                return "Paranthesis Start";
+            else if (s == ')' || s == '}' || s == ']')
+                return "Paranthesis End";
+            else return
+                    "Invalid token";
+        }
+
+        public static int OperatorWeight(char s)
+        {
+            if (s == '+' || s == '-')
+                return 1;
+            else if (s == '*' || s == '/')
+                return 2;
+            else return 0;
+        }
+
+        public static char GetStartParanthesis(char s)
+        {
+            if (s == ')')
+                return '(';
+            else if (s == '}')
+                return '{';
+            else if (s == ']')
+                return '[';
+
+            else return ' ';
+
+        }
+
+
+
         public static string GetTokenType(string token)
         {
             double tokenvalue;
