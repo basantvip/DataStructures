@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sorting
 {
@@ -16,14 +14,15 @@ namespace Sorting
 
             var list = new List<int>();
             var r = new Random();
-            while (list.Count < 10)
+            const int items = 100;
+            while (list.Count < items)
             {
-                var next = r.Next(10);
+                var next = r.Next(items);
                 if (list.Contains(next))
                     continue;
                 list.Add(next);
             }
-
+            Console.WriteLine($"Items Count: {items}");
             Console.Write("Input List: ");
             PrintList(list);
 
@@ -48,6 +47,9 @@ namespace Sorting
 
             Console.Write("Merge Sort: ");
             PrintList(MergeSort(list));
+
+            Console.Write("Quick Sort: ");
+            PrintList(QuickSort(list));
 
             Console.ReadLine();
         }
@@ -143,16 +145,16 @@ namespace Sorting
             var rounds = 0;
             for (var i = 1; i < returnList.Count; i++)
             {
-                var CurrentInsValue = returnList[i];
+                var currentInsValue = returnList[i];
                 var j = i; //rightmost boundary of sorted list
                 //PrintList(returnList);                
-                while (j > 0 && returnList[j - 1] > CurrentInsValue)
+                while (j > 0 && returnList[j - 1] > currentInsValue)
                 {
                     rounds++;
                     returnList[j] = returnList[j - 1];
                     j--;
                 }
-                returnList[j] = CurrentInsValue;
+                returnList[j] = currentInsValue;
 
             }
             Console.WriteLine($"Rounds: {rounds}");
@@ -181,6 +183,26 @@ namespace Sorting
 
             }
         }
+
+        public static List<int> QuickSort(List<int> list)
+        {
+            var returnList = new List<int>(list);
+            int rounds = 0;
+            QuickSort(returnList, 0, returnList.Count - 1, ref rounds);
+            Console.WriteLine($"Rounds: {rounds}");
+            return returnList;
+        }
+
+        public static void QuickSort(List<int> list, int start, int end, ref int rounds)
+        {
+            if (start >= end)
+                return;
+
+            var partitionIndex = Partition(list, start, end, ref rounds);
+            QuickSort(list, start, partitionIndex - 1, ref rounds);
+            QuickSort(list, partitionIndex + 1, end, ref rounds);
+        }
+
         public static void MergeLists(List<int> list, int lower, int middle, int upper, ref int rounds)
         {
             var tempList = new List<int>();
@@ -189,10 +211,7 @@ namespace Sorting
             while (i <= middle && j <= upper)
             {
                 rounds++;
-                if (list[i] < list[j])
-                    tempList.Add(list[i++]);
-                else
-                    tempList.Add(list[j++]);
+                tempList.Add(list[i] < list[j] ? list[i++] : list[j++]);
             }
 
             while (i <= middle)
@@ -205,13 +224,21 @@ namespace Sorting
                 tempList.Add(list[j++]);
                 rounds++;
             }
-            for (int k = 0; k < tempList.Count; k++)
+            for (var k = 0; k < tempList.Count; k++)
                 list[lower + k] = tempList[k];
         }
     
 
         public static void PrintList(List<int> list)
         {
+            //Validation
+            for (var i = 0; i > list.Count - 1; i++)
+            {
+                if (list[i] < list[i + 1])
+                    throw new InvalidOperationException();
+
+            }
+
             var s = list.Aggregate("", (current, item) => $"{current},{item}");
             if (s.StartsWith(","))
                 s = s.Substring(1, s.Length - 1);
@@ -237,10 +264,38 @@ namespace Sorting
 
         public static void Swap(List<int> list, int i, int j)
         {
+            if (i == j)
+                return;
             var temp = list[i];
             list[i] = list[j];
             list[j] = temp;
             
+        }
+
+        public static int Partition(List<int> list, int start, int end, ref int rounds)
+        {
+            if (start >= end)
+                return start;
+
+            var pivotValue = list[end];
+            var pivotIndex = start;
+
+            for (var i = start; i < end; i++)
+            {
+                rounds++;
+                //all the time list[pivotIndex] > pivotValue
+                if (list[i] < pivotValue)
+                {
+                    Swap(list, i, pivotIndex++);
+                    
+                }
+            }
+            //at the end all elements left to pivotIndex < pivotValue
+            //and all elements right to pivotIndex >= pivotValue
+            //so now we can swap pivotIndex and end
+            Swap(list,pivotIndex,end);
+            rounds++;
+            return pivotIndex;
         }
     }
 }
