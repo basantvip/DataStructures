@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadedBinaryTree", "Threa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorting", "Sorting\Sorting.csproj", "{6AE1C099-E364-4B7B-B2FA-6F7C762DD79B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTable", "Hashtable\HashTable.csproj", "{4A6438AC-555D-4E7F-B64D-967A944CF12C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6AE1C099-E364-4B7B-B2FA-6F7C762DD79B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AE1C099-E364-4B7B-B2FA-6F7C762DD79B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AE1C099-E364-4B7B-B2FA-6F7C762DD79B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A6438AC-555D-4E7F-B64D-967A944CF12C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A6438AC-555D-4E7F-B64D-967A944CF12C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A6438AC-555D-4E7F-B64D-967A944CF12C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A6438AC-555D-4E7F-B64D-967A944CF12C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
