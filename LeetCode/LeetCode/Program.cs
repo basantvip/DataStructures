@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using BinaryTree;
 
 namespace LeetCode
 {
@@ -13,27 +14,33 @@ namespace LeetCode
         {
             //LongestCommonPrefix.FindLongestCommonPrefixDemo();
             //PhoneNumberLetterCombination.PhoneNumberLetterCombinationDemo();
-            //TwoSum();
-            AddTwoNumbers();
+
+            //Program p = new Program();
+            //p.TwoSum();
+            //p.AddTwoNumbers();
+            //p.TwoSumIV_Input_BST_Demo();
+
+            SearchAutoComplete s = new SearchAutoComplete();
+            s.Demo();
             Console.ReadLine();
         }
 
-        public static void TwoSum()
+        public void TwoSum()
         {
             int[] list = new int[5] { 1, 2, 3, 4, 5 };
             List<int> result = new List<int>();
-            Dictionary<int, int> hashTable = new Dictionary<int, int>();
+            Dictionary<int, int> dict = new Dictionary<int, int>();
             int sum = 9;
             for(int i = 0; i<list.Length; i++)
             {
                 int complement = sum - list[i];
-                if (hashTable.ContainsKey(list[i]))
+                if (dict.ContainsKey(list[i]))
                 {
-                    result.Add(hashTable[list[i]]);
+                    result.Add(dict[list[i]]);
                     result.Add(i);
                     break;
                 }
-                hashTable.Add(complement, i);
+                dict.Add(complement, i);
             }
             if (result.Count>0)
                 Console.WriteLine($"{result[0]},{result[1]}");
@@ -44,7 +51,7 @@ namespace LeetCode
 
         }
 
-        public static void AddTwoNumbers()
+        public void AddTwoNumbers()
         {
             LinkedList<int> list1 = new LinkedList<int>(new List<int>() { 2, 4, 3, 5});
             LinkedList<int> list2 = new LinkedList<int>(new List<int>() { 5, 6, 4, 9});
@@ -70,6 +77,28 @@ namespace LeetCode
                 Console.Write($"{item},");
             }
 
+        }
+
+        public void TwoSumIV_Input_BST_Demo()
+        {
+            BinaryTree.BinaryTree BST = new BinaryTree.BinaryTree();
+            BST.AddNodes();
+            Console.Write("Enter a Sum:");
+            int sum = int.Parse(Console.ReadLine());
+            Console.WriteLine(FindTarget(BST.Root,sum));
+
+        }
+
+        public HashSet<int> hashSet = new HashSet<int>();
+        public bool FindTarget(BinaryTree.Node root, int k)
+        {
+            if (root == null)
+                return false;
+            if (hashSet.Contains(root.Value))
+                return true;
+            else
+                hashSet.Add(k - root.Value);
+            return (FindTarget(root.Left, k) || FindTarget(root.Right, k));
         }
 
     }
