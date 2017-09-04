@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkedList
+namespace DataStructures
 {
     using System.Collections;
 
@@ -41,7 +41,7 @@ namespace LinkedList
         }
     }
 
-    public class LinkedList<T>:
+    public class MyLinkedList<T>:
         ICollection<T>,
         IEnumerable<Node<T>>
     {
@@ -229,7 +229,7 @@ namespace LinkedList
 
         public static void Demo()
         {
-            var mylist = new LinkedList<object>();
+            var mylist = new MyLinkedList<object>();
             mylist.PrintList();
             mylist.AddFirst(1);
             mylist.AddFirst(2);

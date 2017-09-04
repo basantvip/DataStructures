@@ -60,7 +60,7 @@ namespace LeetCode
 
         public List<string> GetAutoCompleteResults(string searchString, IDictionary<string, int> searchHistory)
         {
-            return searchHistory.Where(t => t.Key.Contains(searchString)).Select(t => t).OrderByDescending(t => t.Value).ThenBy(t => t.Key).Take(3).Select(t => t.Key).ToList() ;            
+            return searchHistory.Where(t => t.Key.StartsWith(searchString)).Select(t => t).OrderByDescending(t => t.Value).ThenBy(t => t.Key).Take(3).Select(t => t.Key).ToList() ;            
         }
             //["i love you", "island","ironman", "i love leetcode"], [5,3,2,2]) 
         

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BinaryTree
+namespace DataStructures
 {
     public class Node
     {
@@ -315,14 +315,11 @@ namespace BinaryTree
             Console.WriteLine();
 
         }
-    }
 
-    class Program
-    {
-        static void Main(string[] args)
+        public static void Demo()
         {
             BinaryTree tree = new BinaryTree();
-            
+
             tree.AddNodes();
 
             while (true)
@@ -367,7 +364,7 @@ namespace BinaryTree
                     case "0":
                         return;
                 }
-            }            
+            }
         }
     }
 }

@@ -5,20 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace HashTable
+namespace DataStructures
 {
-    class Program
+    public class HashTable
     {
-        static Hashtable GetHashTable()
+        public static Hashtable GetHashTable()
         {
             Hashtable hashtable = new Hashtable();
 
             hashtable.Add(300, "Carrot");
             hashtable.Add("Area", 1000);
-            
+
             return hashtable;
         }
-        static HashSet<int> GetHashSet()
+        public static HashSet<int> GetHashSet()
         {
             HashSet<int> hashSet = new HashSet<int>() { 1, 2 };
             hashSet.Add(6);
@@ -26,7 +26,7 @@ namespace HashTable
             return hashSet;
         }
 
-        static void Main()
+        public static void Demo()
         {
             Hashtable hashtable = GetHashTable();
 
@@ -47,6 +47,6 @@ namespace HashTable
             Console.WriteLine($"HashSet contains key 6:{hashSet.Contains(6)}");
             Console.ReadLine();
         }
-        
+
     }
 }

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkedList
+namespace DataStructures
 {
     class StackLinkList <T>
     {
-        private LinkedList<T> _stack = new LinkedList<T>();
+        private MyLinkedList<T> _stack = new MyLinkedList<T>();
         
         public void Push (T value)
         {
@@ -63,7 +63,7 @@ namespace LinkedList
                 //        Console.WriteLine();
                 //}     
 
-                LinkedList<T>.PrintListReverse(_stack.Head);
+                MyLinkedList<T>.PrintListReverse(_stack.Head);
         }
 
         public static void Demo()

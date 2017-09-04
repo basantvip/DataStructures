@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Sorting
+namespace DataStructures
 {
-    class Program
+    public class Sorting
     {
-        static void Main(string[] args)
+        public static void Demo()
         {
             //Console.WriteLine("Enter input list of integers separated by space or comma");
             //var list = (Console.ReadLine() ?? "").Replace(',', ' ').Split(' ').Select(int.Parse).ToList();
@@ -53,7 +53,6 @@ namespace Sorting
 
             Console.ReadLine();
         }
-
         public static List<int> BubbleSort(List<int> list)
         {
             var returnList = new List<int>(list);

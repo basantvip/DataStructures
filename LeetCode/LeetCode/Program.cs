@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
-using BinaryTree;
+using DataStructures;
 
 namespace LeetCode
 {
@@ -20,7 +20,9 @@ namespace LeetCode
             //p.AddTwoNumbers();
             //p.TwoSumIV_Input_BST_Demo();
 
-            SearchAutoComplete s = new SearchAutoComplete();
+            //SearchAutoComplete s = new SearchAutoComplete();
+            //s.Demo();
+            Subtree s = new Subtree();
             s.Demo();
             Console.ReadLine();
         }
@@ -53,6 +55,7 @@ namespace LeetCode
 
         public void AddTwoNumbers()
         {
+            
             LinkedList<int> list1 = new LinkedList<int>(new List<int>() { 2, 4, 3, 5});
             LinkedList<int> list2 = new LinkedList<int>(new List<int>() { 5, 6, 4, 9});
             LinkedList<int> result = new LinkedList<int>();
@@ -81,16 +84,16 @@ namespace LeetCode
 
         public void TwoSumIV_Input_BST_Demo()
         {
-            BinaryTree.BinaryTree BST = new BinaryTree.BinaryTree();
+            BinaryTree BST = new BinaryTree();
             BST.AddNodes();
             Console.Write("Enter a Sum:");
             int sum = int.Parse(Console.ReadLine());
-            Console.WriteLine(FindTarget(BST.Root,sum));
+            Console.WriteLine(FindTarget(BST.Root, sum));
 
         }
 
         public HashSet<int> hashSet = new HashSet<int>();
-        public bool FindTarget(BinaryTree.Node root, int k)
+        public bool FindTarget(Node root, int k)
         {
             if (root == null)
                 return false;

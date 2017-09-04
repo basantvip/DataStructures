@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkedList
+namespace DataStructures
 {
     class Program
     {
@@ -12,12 +12,12 @@ namespace LinkedList
         {
             while (true)
             {
-                Console.Write("\n\t1.Linked List\n\t2.Stack Array\n\t3.Stack Linked List\n\t4.Postfix\n\t5.Infix to Postfix\n\t0:Exit\nEnter Choice: ");
+                Console.Write("\n\t1.Linked List\n\t2.Stack Array\n\t3.Stack Linked List\n\t4.Postfix\n\t5.Infix to Postfix\n\t6.Hash Table\n\t7.Binary Tree\n\t8.Sorting\n\t9.Threaded Binary Tree\n\t0:Exit\nEnter Choice: ");
                 var input = Console.ReadLine();
                 switch (input)
                 {
                     case "1":
-                        LinkedList<object>.Demo();
+                        MyLinkedList<object>.Demo();
                         break;
                     case "2":
                         StackArray<int>.Demo();
@@ -30,6 +30,18 @@ namespace LinkedList
                         break;
                     case "5":
                         Postfix.InfixToPostfix();
+                        break;
+                    case "6":
+                        HashTable.Demo();
+                        break;
+                    case "7":
+                        BinaryTree.Demo();
+                        break;
+                    case "8":
+                        Sorting.Demo();
+                        break;
+                    case "9":
+                        ThreadedBinaryTree.Demo();
                         break;
                     case "0":
                         return;

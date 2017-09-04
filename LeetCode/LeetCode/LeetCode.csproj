@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BinaryTree">
-      <HintPath>..\..\DataStructures\BinaryTree\bin\Debug\BinaryTree.exe</HintPath>
+    <Reference Include="DataStructures">
+      <HintPath>..\..\DataStructures\DataStructures\bin\Debug\DataStructures.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,6 +51,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchAutoComplete.cs" />
+    <Compile Include="Subtree.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

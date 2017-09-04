@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ThreadedBinaryTree
+namespace DataStructures
 {
-    public class Node
+    public class ThreadedNode
     {
         public int Value;
-        public Node Left;
-        public Node Right;
+        public ThreadedNode Left;
+        public ThreadedNode Right;
 
         public bool IsLeftThreaded;
         public bool IsRightThreaded;
 
-        public Node(int value)
+        public ThreadedNode(int value)
         {
             this.Value = value;
             //always add a new element as a leaf node
@@ -34,7 +34,7 @@ namespace ThreadedBinaryTree
 
     public class ThreadedBinaryTree
     {
-        Node Root;
+        ThreadedNode Root;
         public int Count;
 
         public ThreadedBinaryTree()
@@ -54,16 +54,16 @@ namespace ThreadedBinaryTree
             }
         }
 
-        private static Node AddNode(Node root, int value)
+        private static ThreadedNode AddNode(ThreadedNode root, int value)
         {
             if (root == null)
-                return new Node(value);
+                return new ThreadedNode(value);
 
             if (root.Value >= value) //is part of left subtree
             {
                 if (root.IsLeftThreaded) //reached to the far left end
                 {
-                    var temp = new Node(value);
+                    var temp = new ThreadedNode(value);
 
                     temp.Left = root.Left;
                     temp.Right = root;                    
@@ -78,7 +78,7 @@ namespace ThreadedBinaryTree
             {
                 if (root.IsRightThreaded) //reached to the far right end
                 {
-                    var temp = new Node(value);
+                    var temp = new ThreadedNode(value);
                     temp.Left = root;
                     temp.Right = root.Right;
 
@@ -109,7 +109,7 @@ namespace ThreadedBinaryTree
             }
         }
 
-        public Node FindSuccessor(Node temp)
+        public ThreadedNode FindSuccessor(ThreadedNode temp)
         {
             if (temp.IsRightThreaded)
                 return temp.Right;
@@ -122,10 +122,7 @@ namespace ThreadedBinaryTree
             }
         } 
 
-    }
-    class Program
-    {
-        static void Main(string[] args)
+        public static void Demo()
         {
             Console.WriteLine("Threaded Binary Tree and its Inorder traversal");
             ThreadedBinaryTree tbt = new ThreadedBinaryTree();
