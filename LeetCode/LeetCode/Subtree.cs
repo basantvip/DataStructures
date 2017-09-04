@@ -9,7 +9,7 @@ namespace LeetCode
 {
     class Subtree
     {
-        public void Demo()
+        public static void Demo()
         {
             BinaryTree MainTree = new BinaryTree();
             MainTree.AddNodes();

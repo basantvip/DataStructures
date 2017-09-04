@@ -8,9 +8,7 @@ namespace LeetCode
 {
     class SearchAutoComplete
     {
-        
-
-        public void Demo()
+        public static void Demo()
         {
             Dictionary<string, int> searchHistory = new Dictionary<string, int>();
             searchHistory.Add("i love you", 5);
@@ -58,7 +56,7 @@ namespace LeetCode
             }
         }
 
-        public List<string> GetAutoCompleteResults(string searchString, IDictionary<string, int> searchHistory)
+        public static List<string> GetAutoCompleteResults(string searchString, IDictionary<string, int> searchHistory)
         {
             return searchHistory.Where(t => t.Key.StartsWith(searchString)).Select(t => t).OrderByDescending(t => t.Value).ThenBy(t => t.Key).Take(3).Select(t => t.Key).ToList() ;            
         }

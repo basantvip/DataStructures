@@ -9,7 +9,7 @@ namespace LeetCode
     class LongestCommonPrefix
     {
 
-        public static void FindLongestCommonPrefixDemo()
+        public static void Demo()
         {
             List<string> list = new List<string>() { "ABD", "ABC", "ADEF" };
             var result = FindLongestCommonPrefix(list);

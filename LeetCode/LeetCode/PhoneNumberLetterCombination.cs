@@ -9,7 +9,7 @@ namespace LeetCode
     class PhoneNumberLetterCombination
     {
         public static List<string> keypad = new List<string>() { " ", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
-        public static void PhoneNumberLetterCombinationDemo()
+        public static void Demo()
         {
             Console.WriteLine("keyPad:");
             for (var i = 0; i < keypad.Count; i++)
