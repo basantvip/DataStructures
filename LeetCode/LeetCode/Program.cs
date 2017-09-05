@@ -37,7 +37,7 @@ namespace LeetCode
                         SearchAutoComplete.Demo();
                         break;
                     case "7":
-                        Subtree.Demo();
+                        SubTree.Demo();
                         break;
                     case "0":
                         return;

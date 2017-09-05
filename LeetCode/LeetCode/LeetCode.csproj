@@ -52,7 +52,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchAutoComplete.cs" />
-    <Compile Include="Subtree.cs" />
+    <Compile Include="SubTree.cs" />
     <Compile Include="TwoSum.cs" />
     <Compile Include="TwoSumIV_Input_BST.cs" />
   </ItemGroup>

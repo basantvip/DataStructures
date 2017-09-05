@@ -38,9 +38,12 @@ namespace DataStructures
         public void AddNodes()
         {
             Console.Write("\nEnter comma Separated node elements:");
-            var binaryTreeString = Console.ReadLine();
-            var binaryTreeElements = binaryTreeString.Split(',');
-            foreach (var item in binaryTreeElements)
+            AddNodes(Console.ReadLine());
+        }
+
+        public void AddNodes(string treeString)
+        {
+            foreach (var item in treeString.Split(','))
             {
                 this.Root = AddNode(this.Root, int.Parse(item));
                 this.Count++;
