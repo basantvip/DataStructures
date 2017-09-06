@@ -35,6 +35,11 @@ namespace DataStructures
             Count = 0;
         }
 
+        public BinaryTree(string s)
+        {
+            this.AddNodes(s);
+        }
+
         public void AddNodes()
         {
             Console.Write("\nEnter comma Separated node elements:");
