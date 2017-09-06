@@ -14,7 +14,7 @@ namespace LeetCode
         {
             while (true)
             {
-                Console.Write("\n\t1.LongestCommonPrefix\n\t2.PhoneNumberLetterCombination\n\t3.AddTwoNumbers\n\t4.TwoSum\n\t5.TwoSumIV_Input_BST\n\t6.SearchAutoComplete\n\t7.SubTree\n\t0:Exit\nEnter Choice: ");
+                Console.Write("\n\t1.LongestCommonPrefix\n\t2.PhoneNumberLetterCombination\n\t3.AddTwoNumbers\n\t4.TwoSum\n\t5.TwoSumIV_Input_BST\n\t6.SearchAutoComplete\n\t7.SubTree\n\t8.Decode Ways\n\t9.AveregeOfLevelsBinaryTree\n\t10.Brick Wall\n\t11.Binary Tree Diameter\n\t12.TargetSum\n\t0:Exit\nEnter Choice: ");
                 var input = Console.ReadLine();
                 switch (input)
                 {
@@ -38,6 +38,21 @@ namespace LeetCode
                         break;
                     case "7":
                         SubTree.Demo();
+                        break;
+                    case "8":
+                        DecodeWays.Demo();
+                        break;
+                    case "9":
+                        AveregeOfLevelsBinaryTree.Demo();
+                        break;
+                    case "10":
+                        BrickWall.Demo();
+                        break;
+                    case "11":
+                        BinaryTreeDiameter.Demo();
+                        break;
+                    case "12":
+                        TargetSum.Demo();
                         break;
                     case "0":
                         return;
