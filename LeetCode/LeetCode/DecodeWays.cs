@@ -12,30 +12,32 @@ namespace LeetCode
         {
             Console.WriteLine("Enter input string of digits");
             var inputString = Console.ReadLine();
-            Console.WriteLine($"Number of ways: {Ways(inputString)}");
-        }
-        public static int Ways(string s)
-        {
-            if (s == null || s.Length == 0)
-            {
-                return 0;
-            }
-            int n = s.Length;
-            int[] ways = new int[n + 1];
-            ways[n] = 1;
-            ways[n - 1] = s[n - 1] == '0' ? 0 : 1;
+            Console.WriteLine($"Number of ways: {Ways(inputString)}");            
+        }       
 
-            for (int i = n - 2; i >= 0; i--)
+        public static int Ways(String message)
+        {
+            int msgLen = message.Length;
+            if (message.Length == 0 || (message.Length == 1) && message == "0")
+                return 0;
+            int[] decodeCount = new int[msgLen + 1];
+
+            decodeCount[0] = 1;
+            decodeCount[1] = 1;
+
+            for (int i = 2; i <= msgLen; i++) //will go one item beyond array
             {
-                Console.WriteLine($"Before: i:{i},ways:{string.Concat(ways)}");
-                if (s[i] == '0')
-                    continue;
-                ways[i] = int.Parse(s[i].ToString()) * 10 + int.Parse(s[i + 1].ToString()) <= 26
-                    ? ways[i + 1] + ways[i + 2]
-                    : ways[i + 1];
-                Console.WriteLine($"After: i:{i},ways:{string.Concat(ways)}");
+                int Prev = int.Parse(message[i - 1].ToString());
+                int PrevTwo = int.Parse(message[i - 2].ToString()) * 10 + Prev;
+
+                if (Prev > 0)
+                    decodeCount[i] = decodeCount[i - 1];
+
+                if (PrevTwo <= 26)
+                    decodeCount[i] = decodeCount[i] + decodeCount[i - 2];
             }
-            return ways[0];
+
+            return decodeCount[msgLen];
         }
     }
 }

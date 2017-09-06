@@ -14,7 +14,13 @@ namespace LeetCode
         {
             while (true)
             {
-                Console.Write("\n\t1.LongestCommonPrefix\n\t2.PhoneNumberLetterCombination\n\t3.AddTwoNumbers\n\t4.TwoSum\n\t5.TwoSumIV_Input_BST\n\t6.SearchAutoComplete\n\t7.SubTree\n\t8.Decode Ways\n\t9.AveregeOfLevelsBinaryTree\n\t10.Brick Wall\n\t11.Binary Tree Diameter\n\t12.TargetSum\n\t0:Exit\nEnter Choice: ");
+                Console.Write("\n\t1.LongestCommonPrefix\n\t2.PhoneNumberLetterCombination\n\t3.AddTwoNumbers");
+                Console.Write("\n\t4.TwoSum\n\t5.TwoSumIV_Input_BST\n\t6.SearchAutoComplete\n\t7.SubTree");
+                Console.Write("\n\t8.Decode Ways\n\t9.AveregeOfLevelsBinaryTree\n\t10.Brick Wall");
+                Console.Write("\n\t11.Binary Tree Diameter\n\t12.TargetSum\n\t13.Hamming Distance");
+                Console.Write("\n\t14.TotalHammingDistance\n\t15.BuyAndSellStock\n\t16.SortedArrayToBalancedBST");
+                Console.Write("\n\t0:Exit\nEnter Choice: ");
+
                 var input = Console.ReadLine();
                 switch (input)
                 {
@@ -54,15 +60,22 @@ namespace LeetCode
                     case "12":
                         TargetSum.Demo();
                         break;
+                    case "13":
+                        HammingDistance.Demo();
+                        break;
+                    case "14":
+                        TotalHammingDistance.Demo();
+                        break;
+                    case "15":
+                        BuyAndSellStock.Demo();
+                        break;
+                    case "16":
+                        SortedArrayToBalancedBST.Demo();
+                        break;
                     case "0":
                         return;
                 }
-            }
-
-
-            
-            
-            Console.ReadLine();
+            } 
         }
     }
 }
