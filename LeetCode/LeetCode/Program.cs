@@ -19,7 +19,8 @@ namespace LeetCode
                 Console.Write("\n\t8.Decode Ways\n\t9.AveregeOfLevelsBinaryTree\n\t10.Brick Wall");
                 Console.Write("\n\t11.Binary Tree Diameter\n\t12.TargetSum\n\t13.Hamming Distance");
                 Console.Write("\n\t14.TotalHammingDistance\n\t15.BuyAndSellStock\n\t16.SortedArrayToBalancedBST");
-                Console.Write("\n\t17.MinimumLengthSubArraySum\n\t18.MaxSumSubArray_Kadane\n\t19.MaximumSumSubrectangle");                
+                Console.Write("\n\t17.MinimumLengthSubArraySum\n\t18.MaxSumSubArray_Kadane\n\t19.MaximumSumSubrectangle");
+                Console.Write("\n\t20.LongestContinuousIncreasingSubsequence\n\t21.Burst Ballons");
                 Console.Write("\n\t0:Exit\nEnter Choice: ");
 
                 var input = Console.ReadLine();
@@ -81,6 +82,12 @@ namespace LeetCode
                         break;
                     case "19":
                         MaximumSumSubrectangle.Demo();
+                        break;
+                    case "20":
+                        LongestContinuousIncreasingSubsequence.Demo();
+                        break;
+                    case "21":
+                        BurstBallons.Demo();
                         break;
                     case "0":
                         return;

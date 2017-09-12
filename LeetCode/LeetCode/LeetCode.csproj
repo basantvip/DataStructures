@@ -50,10 +50,12 @@
     <Compile Include="AveregeOfLevelsBinaryTree.cs" />
     <Compile Include="BinaryTreeDiameter.cs" />
     <Compile Include="BrickWall.cs" />
+    <Compile Include="BurstBallons.cs" />
     <Compile Include="BuyAndSellStock.cs" />
     <Compile Include="DecodeWays.cs" />
     <Compile Include="HammingDistance.cs" />
     <Compile Include="LongestCommonPrefix.cs" />
+    <Compile Include="LongestContinuousIncreasingSubsequence.cs" />
     <Compile Include="MaximumSumSubrectangle.cs" />
     <Compile Include="MaxSumSubArray_Kadane.cs" />
     <Compile Include="MinimumLengthSubArraySum.cs" />
