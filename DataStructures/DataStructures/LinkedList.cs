@@ -89,7 +89,10 @@ namespace DataStructures
             {
                 this.Head = null;
                 this.Count = 0;
-                return default(T);
+                if (this.Head == null)
+                    return default(T);
+                else
+                    return this.Head.Value;
             }
             var curr = this.Head;
             var next = curr.Next;

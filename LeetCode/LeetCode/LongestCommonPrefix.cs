@@ -12,7 +12,7 @@ namespace LeetCode
 
         public static void Demo()
         {
-            List<string> list = new List<string>() { "ABD", "ABC", "ADEF" };
+            List<string> list = new List<string>() { "ABD", "ABC", "ABDEF" };
             var result = FindLongestCommonPrefix(list);
             if (!string.IsNullOrEmpty(result))
                 Console.WriteLine(result);

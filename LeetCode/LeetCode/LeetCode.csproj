@@ -59,6 +59,7 @@
     <Compile Include="MaximumSumSubrectangle.cs" />
     <Compile Include="MaxSumSubArray_Kadane.cs" />
     <Compile Include="MinimumLengthSubArraySum.cs" />
+    <Compile Include="MinimumWindowSubstring.cs" />
     <Compile Include="PhoneNumberLetterCombination.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
