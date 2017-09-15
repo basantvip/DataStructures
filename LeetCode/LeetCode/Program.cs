@@ -21,6 +21,8 @@ namespace LeetCode
                 Console.Write("\n\t14.TotalHammingDistance\n\t15.BuyAndSellStock\n\t16.SortedArrayToBalancedBST");
                 Console.Write("\n\t17.MinimumLengthSubArraySum\n\t18.MaxSumSubArray_Kadane\n\t19.MaximumSumSubrectangle");
                 Console.Write("\n\t20.LongestContinuousIncreasingSubsequence\n\t21.Burst Ballons\n\t22.MinimumWindowSubstring");
+                Console.Write("\n\t23.MultiplyStrings");
+                
                 Console.Write("\n\t0:Exit\nEnter Choice: ");
 
                 var input = Console.ReadLine();
@@ -91,6 +93,9 @@ namespace LeetCode
                         break;
                     case "22":		
                         MinimumWindowSubstring.Demo();
+                        break;
+                    case "23":
+                        MultiplyStrings.Demo();
                         break;
                     case "0":
                         return;
