@@ -54,6 +54,7 @@
     <Compile Include="BuyAndSellStock.cs" />
     <Compile Include="DecodeWays.cs" />
     <Compile Include="HammingDistance.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="LongestCommonPrefix.cs" />
     <Compile Include="LongestContinuousIncreasingSubsequence.cs" />
     <Compile Include="MaximumSumSubrectangle.cs" />

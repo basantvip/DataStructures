@@ -95,7 +95,12 @@ namespace LeetCode
                     case "0":
                         return;
                 }
-            } 
+
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+            }
+            
+
         }
     }
 }

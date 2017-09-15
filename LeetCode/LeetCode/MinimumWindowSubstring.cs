@@ -37,8 +37,10 @@ namespace LeetCode
             for (int i = 0; i < S.Length; i++)
             {
                 var AlreadyFound = new HashSet<int>();
+
                 if (!ToBeFound.Contains(S[i]))
                     continue;
+
                 AlreadyFound.Add(S[i]);
                 for (int j = i + 1; j < S.Length; j++)
                 {   
@@ -64,11 +66,6 @@ namespace LeetCode
             }
 
             return Min_Length;
-
-
-
-
-
 
         }
     }
