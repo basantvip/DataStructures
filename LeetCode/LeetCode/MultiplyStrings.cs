@@ -11,8 +11,8 @@ namespace LeetCode
         public static void Demo()
         {
             //43. https://leetcode.com/problems/multiply-strings/description/
-            string s1 = "9369162965141127216164882458728854782080715827760307787224298083754";
-            string s2 = "7204554941577564438";
+            string s1 = "324324324";
+            string s2 = "26";
             Console.WriteLine($"string1:{s1}");
             Console.WriteLine($"string2:{s2}");
             Console.WriteLine($"Result:{Multiply(s1, s2)}");
@@ -67,33 +67,36 @@ namespace LeetCode
 
             return result;
 
-        }
+        }      
 
         public static string Multiply_v2(String num1, String num2)
         {
-            int m = num1.Length, n = num2.Length;
-            int[] pos = new int[m + n];
+            if (num1 == "0" || num2 == "0")
+                return "0";
+            var sum = new string('0', num1.Length + num2.Length).Select(t => '0').ToArray<char>();
 
-            for (int i = m - 1; i >= 0; i--)
+            for (int i = num1.Length - 1; i >= 0; i--)
             {
-                for (int j = n - 1; j >= 0; j--)
+                int carry = 0;                
+                for (int j = num2.Length - 1; j >= 0; j--)
                 {
-                    int mul = (num1[i] - '0') * (num2[j] - '0');
-                    int p1 = i + j, p2 = i + j + 1;
-                    int sum = mul + pos[p2];
-
-                    pos[p1] += sum / 10;
-                    pos[p2] = (sum) % 10;
+                    var current = int.Parse(sum[i + j + 1].ToString()) + (int.Parse(num1[i].ToString()) * int.Parse(num2[j].ToString())) + carry;
+                    sum[i + j + 1] = (current % 10).ToString()[0];
+                    carry = current / 10;
                 }
+                sum[i] = (int.Parse(sum[i].ToString()) + carry).ToString()[0];
+            }            
+            var start = 0;
+            while (start < sum.Length)
+            {
+                if (sum[start] != '0')
+                    break;
+                start++;
             }
 
-            StringBuilder sb = new StringBuilder();
-            foreach (var p in pos)
-            {
-                if (!(sb.Length == 0 && p == 0))
-                    sb.Append(p);
-            }
-            return sb.Length == 0 ? "0" : sb.ToString();
+            var result = new string(sum).Substring(start);
+            return result;            
+
         }
     }
 }
