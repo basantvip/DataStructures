@@ -9,10 +9,12 @@ namespace LeetCode
 {
     class AveregeOfLevelsBinaryTree
     {
+        //637: https://leetcode.com/problems/average-of-levels-in-binary-tree/description/
+
         public static void Demo()
         {
             BinaryTree BST = new BinaryTree();
-            BST.AddNodes("12,10,9,11,14,13,15,6,17");
+            BST.AddNodes("12,10,9,11,14,13,15,6,17,16,100,2,25");
             BST.PrintInFix();
 
             Queue<Node> queue = new Queue<Node>();
@@ -36,10 +38,7 @@ namespace LeetCode
                         tempQueue.Enqueue(s.Right);
                 }
 
-                Console.WriteLine($"Sum:{sum}, Count:{count}, Average: {sum/count}");
-                
-                while (queue.Count > 0)
-                    queue.Dequeue();
+                Console.WriteLine($"Sum:{sum}, Count:{count}, Average: {sum/count}");               
 
                 while (tempQueue.Count > 0)
                     queue.Enqueue(tempQueue.Dequeue());

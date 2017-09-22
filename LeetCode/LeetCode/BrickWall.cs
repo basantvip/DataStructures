@@ -8,6 +8,8 @@ namespace LeetCode
 {
     public class BrickWall
     {
+        //554: https://leetcode.com/problems/brick-wall/description/
+
         public static void Demo()
         {
             List<List<int>> wall = new List<List<int>>();

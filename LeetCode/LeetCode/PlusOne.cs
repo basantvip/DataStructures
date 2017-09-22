@@ -51,8 +51,7 @@ namespace LeetCode
         }
 
         public static int[] PlusOneDemoV2(int[] digits)
-        {
-            
+        {            
             List<int> result = new List<int>(digits);
             for (int i = result.Count-1; i >= 0; i--)
             {

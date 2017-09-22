@@ -73,7 +73,7 @@ namespace LeetCode
         {
             if (num1 == "0" || num2 == "0")
                 return "0";
-            var sum = new string('0', num1.Length + num2.Length).Select(t => '0').ToArray<char>();
+            var sum = new string('0', num1.Length + num2.Length).ToArray<char>();
 
             for (int i = num1.Length - 1; i >= 0; i--)
             {
