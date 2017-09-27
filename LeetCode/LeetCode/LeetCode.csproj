@@ -73,6 +73,8 @@
     <Compile Include="TotalHammingDistance.cs" />
     <Compile Include="TwoSum.cs" />
     <Compile Include="TwoSumIV_Input_BST.cs" />
+    <Compile Include="ValidPalindrome.cs" />
+    <Compile Include="ValidPalindromeOneCharDelete.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

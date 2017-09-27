@@ -22,7 +22,8 @@ namespace LeetCode
                 Console.Write("\n\t17.MinimumLengthSubArraySum\n\t18.MaxSumSubArray_Kadane\n\t19.MaximumSumSubrectangle");
                 Console.Write("\n\t20.LongestContinuousIncreasingSubsequence\n\t21.Burst Ballons\n\t22.MinimumWindowSubstring");
                 Console.Write("\n\t23.MultiplyStrings\n\t24.PlusOne");
-                
+                Console.Write("\n\t25.ValidPalindrome\n\t26.ValidPalindromeOneCharDelete");
+
                 Console.Write("\n\t0:Exit\nEnter Choice: ");
 
                 var input = Console.ReadLine();
@@ -99,6 +100,12 @@ namespace LeetCode
                         break;
                     case "24":
                         PlusOne.Demo();
+                        break;
+                    case "25":
+                        ValidPalindrome.Demo();
+                        break;
+                    case "26":
+                        ValidPalindromeOneCharDelete.Demo();
                         break;
                     case "0":
                         return;
