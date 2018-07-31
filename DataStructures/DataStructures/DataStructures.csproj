@@ -53,7 +53,6 @@
     <Compile Include="StackArray.cs" />
     <Compile Include="StackLinkList.cs" />
     <Compile Include="ThreadedBinaryTree.cs" />
-    <Compile Include="TimeSpentInMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

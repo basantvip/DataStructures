@@ -70,6 +70,7 @@
     <Compile Include="SortedArrayToBalancedBST.cs" />
     <Compile Include="SubTree.cs" />
     <Compile Include="TargetSum.cs" />
+    <Compile Include="ExclusiveTimeOfFunctions.cs" />
     <Compile Include="TotalHammingDistance.cs" />
     <Compile Include="TwoSum.cs" />
     <Compile Include="TwoSumIV_Input_BST.cs" />

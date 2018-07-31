@@ -12,7 +12,7 @@ namespace DataStructures
         {
             while (true)
             {
-                Console.Write("\n\t1.Linked List\n\t2.Stack Array\n\t3.Stack Linked List\n\t4.Postfix\n\t5.Infix to Postfix\n\t6.Hash Table\n\t7.Binary Tree\n\t8.Sorting\n\t9.Threaded Binary Tree\n\t10.Time Spent In Methods\n\t0:Exit\nEnter Choice: ");
+                Console.Write("\n\t1.Linked List\n\t2.Stack Array\n\t3.Stack Linked List\n\t4.Postfix\n\t5.Infix to Postfix\n\t6.Hash Table\n\t7.Binary Tree\n\t8.Sorting\n\t9.Threaded Binary Tree\n\t0:Exit\nEnter Choice: ");
                 var input = Console.ReadLine();
                 switch (input)
                 {
@@ -42,10 +42,7 @@ namespace DataStructures
                         break;
                     case "9":
                         ThreadedBinaryTree.Demo();
-                        break;
-                    case "10":
-                        TimeSpentInMethods.Demo();
-                        break;
+                        break;                                            
                     case "0":
                         return;
                 }
