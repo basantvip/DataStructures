@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DataStructures">
-      <HintPath>..\..\DataStructures\DataStructures\bin\Debug\DataStructures.exe</HintPath>
+      <HintPath>..\DataStructures\bin\Debug\DataStructures.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
