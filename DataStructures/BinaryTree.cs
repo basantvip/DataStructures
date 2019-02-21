@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructures
 {
@@ -27,8 +24,10 @@ namespace DataStructures
 
     public class BinaryTree
     {
-        public Node Root;
-        public int Count;
+
+        public int Count { get; set; }
+
+        public Node Root { get; set; }
 
         public BinaryTree()
         {
@@ -55,7 +54,7 @@ namespace DataStructures
             }
         }
 
-        private static Node AddNode(Node root, int value)
+        private Node AddNode(Node root, int value)
         {
             if (root == null)
                 return new Node(value);
@@ -173,9 +172,9 @@ namespace DataStructures
             this.Root = DeleteNode(this.Root, value, out IsFound);
             if (IsFound)
             {
+                this.Count--;
                 Console.WriteLine($"Deleted value {value}");
                 PrintInFix();
-                this.Count--;
             }
             else
                 Console.WriteLine($"Not Found value {value}");
@@ -222,6 +221,8 @@ namespace DataStructures
                 return root;
             }
         }
+
+        //done till here on 1/29, again on 2/20
         public Node InOrderSuccessor()
         {
             Console.WriteLine("Enter value to find successor");
