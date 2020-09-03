@@ -4,19 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeetCode
+namespace LeetCodeFB
 {
     class MultiplyStrings
     {
         public static void Demo()
         {
             //43. https://leetcode.com/problems/multiply-strings/description/
-            string s1 = "324324324";
-            string s2 = "26";
+            string s1 = "2";
+            string s2 = "3";
             Console.WriteLine($"string1:{s1}");
             Console.WriteLine($"string2:{s2}");
             Console.WriteLine($"Result:{Multiply(s1, s2)}");
             Console.WriteLine($"Result:{Multiply_v2(s1, s2)}");
+            Console.WriteLine($"Result:{Multiply_v3(s1, s2)}");
         }
 
         public static string Multiply(string n1, string n2)
@@ -70,10 +71,11 @@ namespace LeetCode
         }      
 
         public static string Multiply_v2(String num1, String num2)
-        {
-            if (num1 == "0" || num2 == "0")
-                return "0";
-            var sum = new string('0', num1.Length + num2.Length).ToArray<char>();
+        {            
+            //var sum = new string('0', num1.Length + num2.Length).ToArray<char>();
+            //var sum = new string('0', num1.Length + num2.Length).ToCharArray();
+            var sum = new char[num1.Length + num2.Length];
+            for (int i=0; i<sum.Length;i++) sum[i] = '0';            
 
             for (int i = num1.Length - 1; i >= 0; i--)
             {
@@ -84,7 +86,7 @@ namespace LeetCode
                     sum[i + j + 1] = (current % 10).ToString()[0];
                     carry = current / 10;
                 }
-                sum[i] = (int.Parse(sum[i].ToString()) + carry).ToString()[0];
+                sum[i] = carry.ToString()[0];
             }            
             var start = 0;
             while (start < sum.Length)
@@ -94,8 +96,35 @@ namespace LeetCode
                 start++;
             }
 
+            var result = new string(sum).Substring(start);            
+            return  result == "" ? "0": result;            
+
+        }
+
+        public static string Multiply_v3(string num1, string num2)
+        {
+            var sum = new string('0', num1.Length + num2.Length).ToArray<char>();
+            for (int i = num1.Length - 1; i >= 0; i--)
+            {
+                int carry = 0;
+                for (int j = num2.Length - 1; j >= 0; j--)
+                {
+                    var curr_value = ((num1[i]-'0') * (num2[j]-'0')) + carry + (sum[i + j + 1]-'0');
+                    sum[i + j + 1] = (curr_value % 10).ToString()[0];
+                    carry = curr_value / 10;
+                }
+                sum[i] = carry.ToString()[0];
+            }
+
+            var start = 0;
+            while (start < sum.Length)
+            {
+                if (sum[start] != '0')
+                    break;
+                start++;
+            }
             var result = new string(sum).Substring(start);
-            return result;            
+            return result == "" ? "0" : result;
 
         }
     }

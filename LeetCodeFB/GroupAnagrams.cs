@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace LeetCodeFB
+{
+    class GroupAnagrams
+    {
+        public static void Demo()
+        {
+            string[] strs = new string[] { "eat", "tea", "tan", "ate", "nat", "bat" };
+            Console.Write($"input: ");
+            foreach (var item in strs)
+            {
+                Console.Write($"{item},");
+            }
+
+            var result = Find(strs);
+
+            Console.WriteLine($"\noutput: ");
+            foreach (var item in result)
+            {
+                Console.Write("{");
+                foreach (var subitem in item)
+                {                    
+                    Console.Write($"{subitem},");
+                }
+                Console.Write("}\n");
+            }
+
+        }
+
+        public static IList<IList<string>> Find(string[] strs)
+        {
+            Dictionary<string, List<string>> dict = new Dictionary<string, List<string>>();
+
+            foreach (var item in strs)
+            {
+                var c_array = item.ToCharArray();
+                Array.Sort(c_array);
+                var key = new string(c_array);
+                if (!dict.ContainsKey(key))
+                    dict.Add(key, new List<string>());
+                dict[key].Add(item);
+            }
+            return new List<IList<string>>(dict.Values);
+        }
+    }
+}
