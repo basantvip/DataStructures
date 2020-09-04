@@ -15,7 +15,8 @@ namespace LeetCodeFB
             {
                 Console.Write("\n\t1.Longest Substring Without Repeating Characters\n\t2.String to Integer (atoi)\n\t3.Roman2Integer");
                 Console.Write("\n\t4.3Sum\n\t5.RemoveDupesFromSortedArray\n\t6.Multiply Strings\n\t7.GroupAnagrams");
-                Console.Write("\n\t8.MoveZeroes\n\t9.Add Binary\n\t10.MergeSortedArray\n\t11.");
+                Console.Write("\n\t8.MoveZeroes\n\t9.Add Binary\n\t10.MergeSortedArray\n\t11.ValidPalindrome");
+                Console.Write("\n\t12.ValidPalindromeII\n\t13.\n\t14.\n\t15.");
                 Console.Write("\n\t0:Exit\nEnter Choice: ");
 
                 var input = Console.ReadLine();
@@ -50,6 +51,12 @@ namespace LeetCodeFB
                         break;
                     case "10":
                         MergeSortedArray.Demo();
+                        break;
+                    case "11":
+                        ValidPalindrome.Demo();
+                        break;
+                    case "12":
+                        ValidPalindromeOneCharDelete.Demo();
                         break;
                     case "0":
                         return;

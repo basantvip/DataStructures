@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeetCode
+namespace LeetCodeFB
 {
     using System.Runtime.Serialization.Formatters;
 
@@ -13,7 +13,7 @@ namespace LeetCode
         //125. Valid Palindrome: https://leetcode.com/problems/valid-palindrome/description/
         public static void Demo()
         {
-            var s = "a.";
+            var s = "A man, a plan, a canal: Panama";
             Console.WriteLine($"input string:{s}");
             Console.WriteLine($"Result:{IsPalindrome(s)}");
         }
@@ -50,8 +50,7 @@ namespace LeetCode
 
         public static bool IsAlphaNumeric(char c)
         {
-            int i;
-            return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || int.TryParse(c.ToString(),out i));
+            return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
         }
     }
 }
