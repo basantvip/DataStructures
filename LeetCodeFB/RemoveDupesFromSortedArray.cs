@@ -6,6 +6,7 @@ namespace LeetCodeFB
 {
     class RemoveDupesFromSortedArray
     {
+        //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/3011/
         public static void Demo()
         {
             int[] numbers = new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };

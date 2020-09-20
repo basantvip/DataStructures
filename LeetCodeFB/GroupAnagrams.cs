@@ -6,6 +6,7 @@ namespace LeetCodeFB
 {
     class GroupAnagrams
     {
+        //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/3014/
         public static void Demo()
         {
             string[] strs = new string[] { "eat", "tea", "tan", "ate", "nat", "bat" };
@@ -30,7 +31,7 @@ namespace LeetCodeFB
 
         }
 
-        public static IList<IList<string>> Find(string[] strs)
+        public static List<List<string>> Find(string[] strs)
         {
             Dictionary<string, List<string>> dict = new Dictionary<string, List<string>>();
 
@@ -43,7 +44,7 @@ namespace LeetCodeFB
                     dict.Add(key, new List<string>());
                 dict[key].Add(item);
             }
-            return new List<IList<string>>(dict.Values);
+            return new List<List<string>>(dict.Values);
         }
     }
 }

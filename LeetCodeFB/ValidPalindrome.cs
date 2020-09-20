@@ -11,6 +11,7 @@ namespace LeetCodeFB
     class ValidPalindrome
     {
         //125. Valid Palindrome: https://leetcode.com/problems/valid-palindrome/description/
+        //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/288/
         public static void Demo()
         {
             var s = "A man, a plan, a canal: Panama";
@@ -50,7 +51,7 @@ namespace LeetCodeFB
 
         public static bool IsAlphaNumeric(char c)
         {
-            return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+            return (c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z');
         }
     }
 }

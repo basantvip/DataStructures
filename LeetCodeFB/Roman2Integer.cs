@@ -4,6 +4,7 @@ using System.Text;
 
 namespace LeetCodeFB
 {
+    //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/3010/
     class Roman2Integer
     {
         public static void Demo()
@@ -36,7 +37,7 @@ namespace LeetCodeFB
                 if (LastDigit > 0 && LastDigit < CurrDigit)
                     CurrDigit = CurrDigit - LastDigit;
                 else
-                    Result += LastDigit;
+                    Result += LastDigit; //Here we are moving one character ahead. notice we are adding last digit where the current char is currDigit
 
                 LastDigit = CurrDigit;
 

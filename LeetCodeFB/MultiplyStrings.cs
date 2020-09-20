@@ -8,11 +8,12 @@ namespace LeetCodeFB
 {
     class MultiplyStrings
     {
+        //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/3013/
         public static void Demo()
         {
-            //43. https://leetcode.com/problems/multiply-strings/description/
-            string s1 = "2";
-            string s2 = "3";
+            
+            string s1 = "123";
+            string s2 = "456";
             Console.WriteLine($"string1:{s1}");
             Console.WriteLine($"string2:{s2}");
             Console.WriteLine($"Result:{Multiply(s1, s2)}");
