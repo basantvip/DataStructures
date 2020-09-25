@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using LeetCodeFB_LL;
 
-namespace LeetCodeFB
+namespace LeetCodeFB_ArrStr
 { 
 
     class SlidingWindowMedian

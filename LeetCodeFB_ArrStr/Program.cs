@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace LeetCodeFB
+namespace LeetCodeFB_ArrStr
 {
     class Program
     {
@@ -16,9 +16,10 @@ namespace LeetCodeFB
                 Console.Write("\n\t1.Longest Substring Without Repeating Characters\n\t2.String to Integer (atoi)\n\t3.Roman2Integer");
                 Console.Write("\n\t4.3Sum\n\t5.RemoveDupesFromSortedArray\n\t6.Multiply Strings\n\t7.GroupAnagrams");
                 Console.Write("\n\t8.MoveZeroes\n\t9.Add Binary\n\t10.MergeSortedArray\n\t11.ValidPalindrome");
-                Console.Write("\n\t12.ValidPalindromeII\n\t13.LengthOfLongestSubstringKDistinct\n\t14.IntegerToEnglishWords\n\t15.AddTwoNumbers(LL)");
-                Console.Write("\n\t16.Merge Two Sorted Lists (LL)\n\t17.SlidingWindowMedian\n\t18.Next Permutation\n\t19.MinimumWindowSubstring");
-                Console.Write("\n\t20.Subarray Sum Equals K\n\t21.OneEditDistance\n\t22.\n\t23.");
+                Console.Write("\n\t12.ValidPalindromeII\n\t13.LengthOfLongestSubstringKDistinct\n\t14.IntegerToEnglishWords");
+                Console.Write("\n\t15.SlidingWindowMedian\n\t16.Next Permutation\n\t17.MinimumWindowSubstring");
+                Console.Write("\n\t18.Subarray Sum Equals K\n\t19.OneEditDistance\n\t20.ValidateIPaddress\n\t21.ProductOfArrayExceptSelf");
+                Console.Write("\n\t22.ReadNCharactersGivenRead4\n\t23.ReadNCharactersGivenRead4_II\n\t24.\n\t25.");                
                 Console.Write("\n\t0:Exit\nEnter Choice: ");
 
                 var input = Console.ReadLine();
@@ -65,28 +66,34 @@ namespace LeetCodeFB
                         break;
                     case "14":
                         IntegerToEnglishWords.Demo();
-                        break;
+                        break;                    
                     case "15":
-                        LLAddTwoNumbers.Demo();
-                        break;
-                    case "16":
-                        LLMergeTwoSortedLists.Demo();
-                        break;
-                    case "17":
                         SlidingWindowMedian.Demo();
                         break;
-                    case "18":
+                    case "16":
                         NextPermutation.Demo();
                         break;
-                    case "19":
+                    case "17":
                         MinimumWindowSubstring.Demo();
                         break;
-                    case "20":
+                    case "18":
                         SubarraySumEqualsK.Demo();
                         break;
-                    case "21":
+                    case "19":
                         OneEditDistance.Demo();
-                        break; 
+                        break;
+                    case "20":
+                        ValidateIPaddress.Demo();
+                        break;
+                    case "21":
+                        ProductOfArrayExceptSelf.Demo();
+                        break;
+                    case "22":
+                        ReadNCharactersGivenRead4.Demo();
+                        break;
+                    case "23":
+                        ReadNCharactersGivenRead4_II.Demo();
+                        break;                        
                     case "0":
                         return;
                 }
@@ -94,8 +101,6 @@ namespace LeetCodeFB
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();
             }
-
-
         }
     }
 }

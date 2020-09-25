@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataStructures\DataStructures.csproj" />
+    <ProjectReference Include="..\LeetCodeFB_LL\LeetCodeFB_LL.csproj" />
+    <ProjectReference Include="..\LeetCode\LeetCode.csproj" />
+  </ItemGroup>
+
+</Project>

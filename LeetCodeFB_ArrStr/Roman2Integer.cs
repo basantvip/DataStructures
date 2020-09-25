@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LeetCodeFB
+namespace LeetCodeFB_ArrStr
 {
     //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/3010/
     class Roman2Integer

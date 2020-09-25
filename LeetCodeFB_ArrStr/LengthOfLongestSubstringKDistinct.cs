@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LeetCodeFB
+namespace LeetCodeFB_ArrStr
 {
     class LengthOfLongestSubstringKDistinct
     {

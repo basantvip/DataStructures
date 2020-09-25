@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeetCodeFB
+namespace LeetCodeFB_LL
 {
     public class ListNode
     {
@@ -46,8 +46,7 @@ namespace LeetCodeFB
                 head = head.next;
             }
             Console.WriteLine();
-        }
-            
+        }            
 
         public static void Demo()
         {
@@ -76,19 +75,17 @@ namespace LeetCodeFB
                 int sum = carry;
                 if (l1 != null)
                 {
-                    sum = sum + l1.val;
+                    sum += l1.val;
                     l1 = l1.next;
                 }
                 if (l2 != null)
                 {
-                    sum = sum + l2.val;
+                    sum += l2.val;
                     l2 = l2.next;
                 }
 
                 carry = sum / 10;
-                curr.next = new ListNode(sum % 10);
-                if (head.next == null) //when first element get added
-                    head = curr;
+                curr.next = new ListNode(sum % 10);                
                 curr = curr.next;
 
             }
@@ -98,8 +95,12 @@ namespace LeetCodeFB
 
 
         //without discarding first element
+        //preparing node for the next iteration, that's why we need to check if next iteration is required 
         public static ListNode AddTwoNumbers2(ListNode l1, ListNode l2)
         {
+            if (l1 == null && l2 == null)
+                return null;
+
             ListNode curr = new ListNode();
             ListNode head = curr;
             int carry = 0;
@@ -119,8 +120,7 @@ namespace LeetCodeFB
 
                 carry = sum / 10;
                 curr.val = sum % 10;
-                //if (curr.next == null) //when first element get added
-                //    head = curr;
+                
                 if (l1 != null || l2 != null || carry > 0) //atleast one more iteration remaining
                 {
                     curr.next = new ListNode();

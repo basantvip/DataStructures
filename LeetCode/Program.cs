@@ -14,7 +14,7 @@ namespace LeetCode
         {
             while (true)
             {
-                Console.Write("\n\t1.LongestCommonPrefix\n\t2.PhoneNumberLetterCombination\n\t3.AddTwoNumbers");
+                Console.Write("\n\t1.LongestCommonPrefix\n\t2.PhoneNumberLetterCombination");
                 Console.Write("\n\t4.TwoSum\n\t5.TwoSumIV_Input_BST\n\t6.SearchAutoComplete\n\t7.SubTree");
                 Console.Write("\n\t8.Decode Ways\n\t9.AveregeOfLevelsBinaryTree\n\t10.Brick Wall");
                 Console.Write("\n\t11.Binary Tree Diameter\n\t12.TargetSum\n\t13.Hamming Distance");
@@ -34,10 +34,7 @@ namespace LeetCode
                         break;
                     case "2":
                         PhoneNumberLetterCombination.Demo();
-                        break;
-                    case "3":
-                        AddTwoNumbers.Demo();
-                        break;
+                        break;                    
                     case "4":
                         TwoSum.Demo2();
                         break;

@@ -51,8 +51,7 @@ namespace LeetCode
                 if (searchHistory.ContainsKey(searchString))
                     searchHistory[searchString]++;
                 else
-                    searchHistory.Add(searchString, 1);
-                var a = "";
+                    searchHistory.Add(searchString, 1);                
             }
         }
 
