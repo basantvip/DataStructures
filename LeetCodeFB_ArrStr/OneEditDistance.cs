@@ -8,7 +8,7 @@ namespace LeetCodeFB_ArrStr
 {
     class OneEditDistance
     {
-        //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/3013/
+        //https://leetcode.com/problems/one-edit-distance/
         public static void Demo()
         {
             
@@ -26,6 +26,7 @@ namespace LeetCodeFB_ArrStr
             //to simply make sure s is not greater than t 
             //which means we dont need to worry about delete a char from s
             //so only two scenarios: replace or insert in s
+            //and both of these means just mismatch of one character, keep moving both the pointers
             if (s_len > t_len)
                 return IsOneEditDistance(t, s);
 
@@ -45,15 +46,16 @@ namespace LeetCodeFB_ArrStr
                     //flip the bit to mark that 1st diff found
                     OneEditDistance = true;
 
-                    //for replacement scenarion nothing special need to be done, just regular i and j pointer increment
+                    //for replacement scenario nothing special need to be done, just regular i and j pointer increment
                     //for insert scenario, instead of inserting just move the s pointer to 1 back, 
-                    //so that in next interation we can check currenr char of s with next char of t
+                    //so that in next interation we can check current char of s with next char of t
                     if (t_len > s_len)
                         i--;
                 }
             }
 
-            //coming here means all 
+            //coming here means one edit distance. Remember we already check if both the strings are not equal. 
+            //and if there are more than one oneditdistance then returning from loop itself.
             return true;
         }
     }

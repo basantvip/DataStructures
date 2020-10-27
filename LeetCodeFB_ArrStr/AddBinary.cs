@@ -6,7 +6,7 @@ namespace LeetCodeFB_ArrStr
 {
     class AddBinary
     {
-        //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/263/
+        //https://leetcode.com/problems/add-binary/
         public static void Demo()
         {
             string a = "11", b = "1";

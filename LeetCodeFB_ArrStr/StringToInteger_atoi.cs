@@ -6,7 +6,7 @@ namespace LeetCodeFB_ArrStr
 {
     class StringToInteger_atoi
     {
-        //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/3009/
+        //https://leetcode.com/problems/string-to-integer-atoi/
         public static void Demo()
         {
             string str = "4193 with words";

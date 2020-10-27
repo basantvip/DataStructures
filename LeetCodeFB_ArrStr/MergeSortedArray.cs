@@ -6,7 +6,7 @@ namespace LeetCodeFB_ArrStr
 {
     class MergeSortedArray
     {
-        //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/309/
+        //https://leetcode.com/problems/merge-sorted-array/
         public static void Demo()
         {
             int[] nums1 = new int[] { 1, 2, 3, 0, 0, 0 };

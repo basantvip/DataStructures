@@ -10,8 +10,7 @@ namespace LeetCodeFB_ArrStr
 
     class ValidPalindrome
     {
-        //125. Valid Palindrome: https://leetcode.com/problems/valid-palindrome/description/
-        //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/288/
+        //https://leetcode.com/problems/valid-palindrome/description/        
         public static void Demo()
         {
             var s = "A man, a plan, a canal: Panama";

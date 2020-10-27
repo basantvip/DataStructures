@@ -8,7 +8,7 @@ namespace LeetCodeFB_ArrStr
 {
     class MultiplyStrings
     {
-        //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/3013/
+        //https://leetcode.com/problems/multiply-strings/
         public static void Demo()
         {
             

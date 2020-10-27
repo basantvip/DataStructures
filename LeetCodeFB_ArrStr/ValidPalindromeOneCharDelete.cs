@@ -10,7 +10,7 @@ namespace LeetCodeFB_ArrStr
 
     class ValidPalindromeOneCharDelete
     {
-        //125. Valid Palindrome II: https://leetcode.com/problems/valid-palindrome-ii/description/
+        //https://leetcode.com/problems/valid-palindrome-ii/description/
         public static void Demo()
         {
             var s = "abccbca";
@@ -19,6 +19,10 @@ namespace LeetCodeFB_ArrStr
             Console.WriteLine($"Result:{IsPalindromeWithouRecursion(s)}");
         }
 
+        //Here the parameters are
+        //s: input string
+        //i, j: left and right indexes
+        //d: how many chars deletes allowed. Here it is 1, But this can be anything
         public static bool IsPalindrome(string s, int i, int j, int d)
         {
             if (i > j)
@@ -29,6 +33,9 @@ namespace LeetCodeFB_ArrStr
 
             if (d == 0)
                 return false;
+            //if the match is not found and this is the first time when this happened (d still 1)
+            //then try both way: skipping left and right
+            //we dont know which one will give us successfull result
             return IsPalindrome(s, i + 1, j, d - 1) || IsPalindrome(s, i, j - 1, d - 1);
         }
         public static bool IsPalindromeWithouRecursion(string s)

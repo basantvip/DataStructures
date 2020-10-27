@@ -8,6 +8,7 @@ namespace LeetCodeFB_ArrStr
 {
     class MinimumWindowSubstring
     {
+        //https://leetcode.com/problems/minimum-window-substring/
         public static void Demo()
         {
             string S = "ADOBECODEBANC";
@@ -97,7 +98,8 @@ namespace LeetCodeFB_ArrStr
         public static int GetIndex(char c)
         {
             //lower case followed by upper case
-            return c >= 'a' && c <= 'z' ? c - 'a' : 256 + c - 'A';
+            return c; 
+            //return c >= 'a' && c <= 'z' ? c - 'a' : 256 + c - 'A';
         }
     }
 }

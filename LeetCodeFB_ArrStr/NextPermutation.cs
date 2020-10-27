@@ -10,7 +10,7 @@ namespace LeetCodeFB_ArrStr
         //https://leetcode.com/problems/next-permutation/
         public static void Demo()
         {
-            int[] numbers = new int[] { 5, 1, 1 };
+            int[] numbers = new int[] { 2,3,1 };
 
             Console.Write($"input: ");
             foreach (var item in numbers)
@@ -38,6 +38,7 @@ namespace LeetCodeFB_ArrStr
             if (i >= 0) //pivot element found, swap with just larger
             {
                 int j = nums.Length - 1;
+                //traversing from right take we have the incresing order. Take the first element which is higher than i-th element. 
                 while (j > i && nums[j] <= nums[i])
                     j--;
                 swap(nums, i, j);

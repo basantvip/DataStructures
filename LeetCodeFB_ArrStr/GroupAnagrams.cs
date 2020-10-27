@@ -6,7 +6,7 @@ namespace LeetCodeFB_ArrStr
 {
     class GroupAnagrams
     {
-        //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/3014/
+        //https://leetcode.com/problems/group-anagrams/
         public static void Demo()
         {
             string[] strs = new string[] { "eat", "tea", "tan", "ate", "nat", "bat" };

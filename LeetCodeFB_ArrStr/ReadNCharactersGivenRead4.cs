@@ -6,7 +6,7 @@ namespace LeetCodeFB_ArrStr
 {
     class ReadNCharactersGivenRead4
     {
-        //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/268/
+        //https://leetcode.com/problems/read-n-characters-given-read4/
         public static void Demo()
         {
             return;
@@ -21,12 +21,12 @@ namespace LeetCodeFB_ArrStr
                 int currCharsRead = Read4(tempbuf);
                 for (int i = 0; i < currCharsRead; i++)
                 {
-                    if (totalCharsRead == n)
+                    if (totalCharsRead == n) //Already read the numbers of chars needed to read
                         return totalCharsRead;
-                    buf[totalCharsRead] = tempbuf[i];
+                    buf[totalCharsRead] = tempbuf[i]; //copy current char from temp buffer to output buffer
                     totalCharsRead++;
                 }
-                if (currCharsRead < 4)
+                if (currCharsRead < 4) //no more chars available to read
                     break;
             }
             return totalCharsRead;

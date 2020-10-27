@@ -4,6 +4,7 @@ using System.Text;
 
 namespace LeetCodeFB_ArrStr
 {
+    //https://leetcode.com/problems/move-zeroes/
     class MoveZeroes
     {
         public static void Demo()
@@ -29,8 +30,11 @@ namespace LeetCodeFB_ArrStr
             int count = 0;
             for (int i = 0; i < nums.Length; i++)
             {
+                //keep incrementing the counter until we get a non zero
                 if (nums[i] == 0)
                     count++;
+                //when we find a non zero, the index this needs to be copied to is (current index - number of 0 found)
+                //also dont forget to set the vacated place to 0
                 else if (count > 0)
                 {
                     nums[i - count] = nums[i];

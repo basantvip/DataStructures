@@ -6,7 +6,7 @@ namespace LeetCodeFB_ArrStr
 {
     class ProductOfArrayExceptSelf
     {
-        //https://leetcode.com/problems/product-of-array-except-self/solution/
+        //https://leetcode.com/problems/product-of-array-except-self
         //one solution would be to build two temp arrays with left and right product of each index
         //taking this idea further if we have to do this in O(1) space complexity (constant space)
         //then we can use the output array for storing the right product
