@@ -33,7 +33,7 @@ namespace LeetCodeFB_LL
 
         public static void Demo()
         {
-            //https://leetcode.com/explore/interview/card/facebook/6/linked-list/3021/
+            //https://leetcode.com/problems/reorder-list/
 
             var head = CreateList(new int[] {1,2,3,4,5});
             Console.Write("Input:");
@@ -58,6 +58,41 @@ namespace LeetCodeFB_LL
             PrintList(head);
             Console.Write("Output:");
             PrintList(ReorderList_Internal(head));
+
+            head = CreateList(new int[] { 1, 2, 3, 4, 5 });
+            Console.Write("Input:");
+            PrintList(head);
+            Console.Write("Output:");
+            ReorderList_Stack(head);
+            PrintList(head);
+
+            head = CreateList(new int[] { 1, 2, 3, 4, 5, 6});
+            Console.Write("Input:");
+            PrintList(head);
+            Console.Write("Output:");
+            ReorderList_Stack(head);
+            PrintList(head);
+
+            head = CreateList(new int[] { 1 });
+            Console.Write("Input:");
+            PrintList(head);
+            Console.Write("Output:");
+            ReorderList_Stack(head);
+            PrintList(head);
+
+            head = CreateList(new int[] { 1, 2 });
+            Console.Write("Input:");
+            PrintList(head);
+            Console.Write("Output:");
+            ReorderList_Stack(head);
+            PrintList(head);
+
+            head = CreateList(new int[] { });
+            Console.Write("Input:");
+            PrintList(head);
+            Console.Write("Output:");
+            ReorderList_Stack(head);
+            PrintList(head);
         }
 
         public static ListNode ReorderList_Internal(ListNode head)
@@ -97,7 +132,39 @@ namespace LeetCodeFB_LL
             return temp;
         }
 
+        public static void ReorderList_Stack(ListNode head)
+        {
 
+            //0, 1, 2 elements in LL, no change. Return as is.
+            if (head == null || head.next == null || head.next.next == null)
+                return;
+            
+            Stack<ListNode> stack = new Stack<ListNode>();
+            var curr = head;
+            while (curr != null)
+            {
+                stack.Push(curr);
+                curr = curr.next;
+            }
+            curr = head;
+
+            while (curr!=null && stack.Peek() != curr)
+            {
+                ListNode temp = curr.next;
+                
+                if (curr.next == stack.Peek()) //reached a point where next item is the same as stack top. Just move the pointer to next
+                {
+                    curr = curr.next;
+                    break;
+                }
+                curr.next = stack.Pop();                
+                curr.next.next = temp;
+                curr = temp;
+            }
+            curr.next = null;
+
+            return;
+        }
 
     }
 

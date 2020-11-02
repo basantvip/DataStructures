@@ -9,6 +9,7 @@ namespace LeetCodeFB_LL
     
     public class LLMergeTwoSortedLists
     {
+        //https://leetcode.com/problems/merge-two-sorted-lists/
         public static ListNode CreateList(int[] list)
         {
             ListNode curr = new ListNode();
@@ -42,7 +43,8 @@ namespace LeetCodeFB_LL
             PrintList(l2);
             Console.Write("-----------------------\n");
             Console.Write("Output:  ");
-            PrintList(Merge(l1,l2));
+            //PrintList(Merge(l1,l2));
+            PrintList(Merge_Recursion(l1, l2));
         }
 
         public static ListNode Merge(ListNode l1, ListNode l2)
@@ -69,6 +71,26 @@ namespace LeetCodeFB_LL
             if (l2 != null)
                 current.next = l2;
             return head.next;
+
+        }
+
+        public static ListNode Merge_Recursion(ListNode l1, ListNode l2)
+        {
+            if (l1 == null)
+                return l2;
+            else if (l2 == null)
+                return l1;
+
+            if (l1.val <= l2.val)
+            {
+                l1.next = Merge_Recursion(l1.next, l2);
+                return l1;
+            }
+            else
+            {
+                l2.next = Merge_Recursion(l1, l2.next);
+                return l2;
+            }
 
         }
 

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace LeetCodeFB_LL
 {
-    
-    // Definition for a Node.
+
+    //https://leetcode.com/problems/copy-list-with-random-pointer/
     public class Node
     {
         public int val;
