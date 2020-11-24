@@ -16,23 +16,23 @@ namespace LeetCode
             BST.PrintPreFix();            
         }
 
-        public static BinaryTree GetBalancedBinaryTree(List<int> list)
+        public static BST GetBalancedBinaryTree(List<int> list)
         {
-            BinaryTree BST = new BinaryTree();
+            BST BST = new BST();
             BST.Root = GetBalancedBinaryTree(list, 0, list.Count - 1);
             return BST;
         }
 
 
-        public static Node GetBalancedBinaryTree(List<int> list, int start, int end)
+        public static TreeNode GetBalancedBinaryTree(List<int> list, int start, int end)
         {
             if (start > end )
                 return null;
 
             int mid = start == end ? start : start + (end - start) / 2;            
-            Node root = new Node(list[mid]);
-            root.Left = GetBalancedBinaryTree(list, start, mid - 1);
-            root.Right = GetBalancedBinaryTree(list, mid + 1, end);
+            TreeNode root = new TreeNode(list[mid]);
+            root.left = GetBalancedBinaryTree(list, start, mid - 1);
+            root.right = GetBalancedBinaryTree(list, mid + 1, end);
             return root;
 
         }

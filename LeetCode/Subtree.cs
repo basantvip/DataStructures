@@ -11,12 +11,12 @@ namespace LeetCode
     {
         public static void Demo()
         {
-            BinaryTree MainTree = new BinaryTree();
+            BST MainTree = new BST();
             Console.WriteLine("MainTree");
             MainTree.AddNodes("10,8,6,12,14,11,13");
 
             Console.WriteLine("SubTree");
-            BinaryTree SubTree = new BinaryTree();
+            BST SubTree = new BST();
             SubTree.AddNodes();
 
             Console.WriteLine(IsSubTree(MainTree,SubTree));
@@ -24,23 +24,23 @@ namespace LeetCode
 
         }
 
-        public static bool IsSubTree(BinaryTree mainTree, BinaryTree subTree)
+        public static bool IsSubTree(BST mainTree, BST subTree)
         {
             return IsSubTree(mainTree.Root,subTree.Root);            
         }
 
-        public static bool IsSubTree(Node mainTree, Node subTree)
+        public static bool IsSubTree(TreeNode mainTree, TreeNode subTree)
         {
             if ((mainTree == null && subTree == null) || subTree == null)
                 return true;
             else if (mainTree == null)
                 return false;
 
-            if (mainTree.Value == subTree.Value)
+            if (mainTree.val == subTree.val)
             {
-                return (IsSubTree(mainTree.Left, subTree.Left) && IsSubTree(mainTree.Right, subTree.Right));
+                return (IsSubTree(mainTree.left, subTree.left) && IsSubTree(mainTree.right, subTree.right));
             }
-            return (IsSubTree(mainTree.Left,subTree) || IsSubTree(mainTree.Right,subTree));
+            return (IsSubTree(mainTree.left,subTree) || IsSubTree(mainTree.right,subTree));
 
         }
     }

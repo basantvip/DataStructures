@@ -1,33 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataStructures
-{
-    public class Node
-    {
-        public int Value;
-        public Node Left;
-        public Node Right;
-
-        public Node(int value)
-        {
-            this.Value = value;
-        }
-
-        public override string ToString()
-        {
-            var left = Left != null ? Left.Value.ToString() : "";
-            var right = Right != null ? Right.Value.ToString() : "";
-            return $"({left}){Value.ToString()}({right}) -> ";
-        }
-    }
-
+{ 
     public class BinaryTree
     {
-
         public int Count { get; set; }
 
-        public Node Root { get; set; }
+        public TreeNode Root { get; set; }
 
         public BinaryTree()
         {
@@ -36,51 +18,53 @@ namespace DataStructures
 
         public BinaryTree(string s)
         {
-            this.AddNodes(s);
-        }
-
-        public void AddNodes()
-        {
-            Console.Write("\nEnter comma Separated node elements:");
-            AddNodes(Console.ReadLine());
-        }
-
-        public void AddNodes(string treeString)
-        {
-            foreach (var item in treeString.Split(','))
-            {
-                this.Root = AddNode(this.Root, int.Parse(item));
-                this.Count++;
-            }
-        }
-
-        private Node AddNode(Node root, int value)
-        {
-            if (root == null)
-                return new Node(value);
-            if (root.Value >= value)
-                root.Left = AddNode(root.Left, value);
-            else
-                root.Right = AddNode(root.Right, value);
-
-            return root;
-        }
-
-        public void PrintInFix()
-        {
-            Console.Write($"InFix({this.Count} Items):");
-            PrintInFix(this.Root);
-            Console.WriteLine();
-        }
-
-        private static void PrintInFix(Node root)
-        {
-            if (root == null)
+            s = s.Trim();
+            Console.WriteLine($"Input String:{s}");
+            List<string> list = s.Split(',').Select(t => t.ToUpper()).ToList();
+            if (list.Count == 0 || list[0]=="NULL")
                 return;
-            PrintInFix(root.Left);
-            Console.Write($"{root.ToString()} ");
-            PrintInFix(root.Right);
+            Queue<TreeNode> Q1 = new Queue<TreeNode>();
+            Root = new TreeNode(Convert.ToInt32(list[0]));
+            Count++;
+            Q1.Enqueue(Root);
+            for(int i=0 ; i<list.Count;)
+            {
+                var currNode = Q1.Dequeue();
+                if (++i < list.Count && list[i] != "NULL")
+                {
+                    currNode.left = new TreeNode(Convert.ToInt32(list[i]));
+                    Q1.Enqueue(currNode.left);
+                    Count++;
+                }
+                if (++i < list.Count && list[i] != "NULL")
+                {
+                    currNode.right = new TreeNode(Convert.ToInt32(list[i]));
+                    Q1.Enqueue(currNode.right);
+                    Count++;
+                }               
+            }
+            print2D(Root);
         }
+
+        public static void Demo()
+        {
+            string s = "3,9,20,12,18,15,7";
+            BinaryTree tree = new BinaryTree(s);
+
+            while (true)
+            {                
+                Console.Write("\n\t1.Print Prefix\n\t0:Exit\nEnter Choice: ");
+                var input = Console.ReadLine();
+                switch (input)
+                {
+                    case "1":
+                        tree.PrintPreFix();
+                        break;
+                    case "0":
+                        return;
+                }
+            }
+        }        
 
         public void PrintPreFix()
         {
@@ -89,291 +73,45 @@ namespace DataStructures
             Console.WriteLine();
         }
 
-        private static void PrintPreFix(Node root)
+        private static void PrintPreFix(TreeNode root)
         {
             if (root == null)
                 return;
             Console.Write($"{root.ToString()}");
-            PrintPreFix(root.Left);
-            PrintPreFix(root.Right);
-        }
+            PrintPreFix(root.left);
+            PrintPreFix(root.right);
+        }        
 
-        public void PrintPostFix()
-        {
-            Console.Write($"PostFix({this.Count} Items):");
-            PrintPostFix(this.Root);
-            Console.WriteLine();
-        }
+        public int COUNT = 5;
 
-        private static void PrintPostFix(Node root)
+        public void print2DUtil(TreeNode root, int space)
         {
+            // Base case  
             if (root == null)
                 return;
-            PrintPostFix(root.Left);
-            PrintPostFix(root.Right);
-            Console.Write($"{root.ToString()}");
+
+            // Increase distance between levels  
+            space += COUNT;
+
+            // Process right child first  
+            print2DUtil(root.right, space);
+
+            // Print current node after space  
+            // count  
+            Console.Write("\n");
+            for (int i = COUNT; i < space; i++)
+                Console.Write(" ");
+            Console.Write(root.val + "\n");
+
+            // Process left child  
+            print2DUtil(root.left, space);
         }
 
-        public bool Contains()
+        // Wrapper over print2DUtil()  
+        public void print2D(TreeNode root)
         {
-            Console.WriteLine("Enter value to search");
-            var value = int.Parse(Console.ReadLine());
-            bool contains = FindNode(this.Root, value) != null ? true : false;
-            Console.WriteLine($"Contains {value}: {contains}");
-            return contains;
-        }
-
-        private static Node FindNode(Node root, int value)
-        {
-            if (root == null)
-                return null;
-            if (root.Value == value)
-                return root;
-            if (root.Value >= value)
-                return FindNode(root.Left, value);
-            else
-                return FindNode(root.Right, value);
-        }
-
-
-        public void FindMin()
-        {
-            Console.WriteLine($"Minimum: {BinaryTree.FindMin(this.Root)}");
-        }
-
-        public void FindMax()
-        {
-            Console.WriteLine($"Maximum: {BinaryTree.FindMax(this.Root)}");
-        }
-
-        public static Node FindMin(Node root)
-        {
-            if (root == null)
-                return null;
-            if (root.Left == null)
-                return root;
-            return FindMin(root.Left);
-        }
-
-        public static Node FindMax(Node root)
-        {
-            if (root == null)
-                return null;
-            if (root.Right == null)
-                return root;
-            return FindMax(root.Right);
-        }
-
-        public void DeleteNode()
-        {
-            Console.WriteLine("Enter a value to delete");
-            var value = int.Parse(Console.ReadLine());
-            bool IsFound;
-            this.Root = DeleteNode(this.Root, value, out IsFound);
-            if (IsFound)
-            {
-                this.Count--;
-                Console.WriteLine($"Deleted value {value}");
-                PrintInFix();
-            }
-            else
-                Console.WriteLine($"Not Found value {value}");
-        }
-        private static Node DeleteNode(Node root, int value, out bool found)
-        {
-            if (root == null)
-            {
-                found = false;
-                return null;
-            }
-
-            if (root.Value > value)
-            {
-                root.Left = DeleteNode(root.Left, value, out found);
-                return root;
-            }
-
-            if (root.Value < value)
-            {
-                root.Right = DeleteNode(root.Right, value, out found);
-                return root;
-            }
-            else //found exact match
-            {
-                found = true;
-
-                //leaf node
-                if (root.Left == null && root.Right == null)
-                    return null;
-
-                //has only left node
-                if (root.Right == null)
-                    return root.Left;
-
-                //has only right node
-                if (root.Left == null)
-                    return root.Right;
-
-                //has both left and right node
-                var temp = FindMin(root.Right); //find max in left subtree or mim in right subtree
-                root.Value = temp.Value;
-                root.Right = DeleteNode(root.Right, temp.Value, out found);
-                return root;
-            }
-        }
-
-        //done till here on 1/29, again on 2/20
-        public Node InOrderSuccessor()
-        {
-            Console.WriteLine("Enter value to find successor");
-            var value = int.Parse(Console.ReadLine());
-
-            Node successorNode;
-            Node valueNode = null;
-            if (this.Root == null)
-                successorNode = null;
-            else
-                valueNode = FindNode(this.Root, value);
-
-            if (valueNode == null)
-                successorNode = null;
-
-            else if (valueNode.Right != null)
-                successorNode = FindMin(valueNode.Right);
-            else
-            {
-                Node current = this.Root;
-                Node next = null;
-                while (current != valueNode)
-                {
-                    if (current.Value > value)
-                    {
-                        next = current;
-                        current = current.Left;
-                    }
-                    else
-                        current = current.Right;
-                }
-
-                successorNode = next;
-            }
-            var nodevalue = successorNode != null ? successorNode.ToString() : "None";
-            Console.WriteLine($"Successor of {value} is {nodevalue}");
-            return successorNode;
-        }
-
-        public int Height()
-        {
-            if (this.Root == null)
-                return 0;
-            var height = BinaryTree.Height(this.Root);
-            Console.WriteLine($"Tree Height: {height}");
-            return height;
-        }
-
-        public static int Height(Node root)
-        {
-            int leftHeight, rightheight;
-            if (root == null)
-                return -1;
-
-            leftHeight = Height(root.Left);
-            rightheight = Height(root.Right);
-
-            return (leftHeight > rightheight ? leftHeight + 1 : rightheight + 1);
-
-        }
-        public void BFS()
-        {
-            var queue = new Queue<Node>();
-            if (this.Root != null)
-                queue.Enqueue(Root);
-            while (queue.Count > 0)
-            {
-                var s = queue.Dequeue();
-                Console.Write($"{s.ToString()} -> ");
-                if (s.Left != null)
-                    queue.Enqueue(s.Left);
-                if (s.Right != null)
-                    queue.Enqueue(s.Right);
-            }
-            Console.WriteLine();
-
-        }
-
-        public void BFS_Invert()
-        {
-            var queue = new Queue<Node>();
-            var stack = new Stack<Node>();
-            if (this.Root != null)
-                queue.Enqueue(Root);
-            while (queue.Count > 0)
-            {
-                var s = queue.Dequeue();
-                stack.Push(s);
-                if (s.Right != null)
-                    queue.Enqueue(s.Right);
-                if (s.Left != null)
-                    queue.Enqueue(s.Left);
-            }
-            while (stack.Count > 0)
-            {
-                Console.Write($"{stack.Pop().ToString()} -> ");
-            }
-
-            Console.WriteLine();
-
-        }
-
-        public static void Demo()
-        {
-            BinaryTree tree = new BinaryTree();
-
-            tree.AddNodes();
-
-            while (true)
-            {
-                Console.Write("\n\t1.Print Infix, 2.Print Prefix, 3.Print Postfix\n\t4.Show Height\n\t5.Check Contains\n\t6.Find Min\n\t7.Find max\n\t8.InOrder Successor\n\t9.Delete a Node\n\t10.BFS, 11. BFS Invert\n\t0:Exit\nEnter Choice: ");
-                var input = Console.ReadLine();
-                switch (input)
-                {
-                    case "1":
-                        tree.PrintInFix();
-                        break;
-                    case "2":
-                        tree.PrintPreFix();
-                        break;
-                    case "3":
-                        tree.PrintPostFix();
-                        break;
-                    case "4":
-                        tree.Height();
-                        break;
-                    case "5":
-                        tree.Contains();
-                        break;
-                    case "6":
-                        tree.FindMin();
-                        break;
-                    case "7":
-                        tree.FindMax();
-                        break;
-                    case "8":
-                        tree.InOrderSuccessor();
-                        break;
-                    case "9":
-                        tree.DeleteNode();
-                        break;
-                    case "10":
-                        tree.BFS();
-                        break;
-                    case "11":
-                        tree.BFS_Invert();
-                        break;
-                    case "0":
-                        return;
-                }
-            }
+            // Pass initial space count as 0  
+            print2DUtil(root, 0);
         }
     }
 }

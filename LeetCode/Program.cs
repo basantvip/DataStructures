@@ -22,7 +22,8 @@ namespace LeetCode
                 Console.Write("\n\t17.MinimumLengthSubArraySum\n\t18.MaxSumSubArray_Kadane\n\t19.MaximumSumSubrectangle");
                 Console.Write("\n\t20.LongestContinuousIncreasingSubsequence\n\t21.Burst Ballons\n\t22.MinimumWindowSubstring");
                 Console.Write("\n\t23.<moved>\n\t24.PlusOne");
-                Console.Write("\n\t27.ExclusiveTimeOfFunctions");                
+                Console.Write("\n\t27.ExclusiveTimeOfFunctions");
+                Console.Write("\n\t28.VericalOrderTraversal");
 
                 Console.Write("\n\t0:Exit\nEnter Choice: ");
 
@@ -100,7 +101,11 @@ namespace LeetCode
                         break;                    
                     case "27":
                         ExclusiveTimeOfFunctions.Demo();
-                        break;                       
+                        break;
+                    case "28":
+                        VericalOrderTraversal.Demo();
+                        break;
+                        
                     case "0":
                         return;
                 }

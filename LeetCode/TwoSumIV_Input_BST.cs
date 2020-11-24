@@ -11,7 +11,7 @@ namespace LeetCode
     {
         public static void Demo()
         {
-            BinaryTree BST = new BinaryTree();
+            BST BST = new BST();
             BST.AddNodes();
             Console.Write("Enter a Sum:");
             int sum = int.Parse(Console.ReadLine());
@@ -19,15 +19,15 @@ namespace LeetCode
         }
 
         public static HashSet<int> hashSet = new HashSet<int>();
-        public static bool FindTarget(Node root, int k)
+        public static bool FindTarget(TreeNode root, int k)
         {
             if (root == null)
                 return false;
-            if (hashSet.Contains(root.Value))
+            if (hashSet.Contains(root.val))
                 return true;
             else
-                hashSet.Add(k - root.Value);
-            return (FindTarget(root.Left, k) || FindTarget(root.Right, k));
+                hashSet.Add(k - root.val);
+            return (FindTarget(root.left, k) || FindTarget(root.right, k));
         }
     }
 }
