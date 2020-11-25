@@ -13,6 +13,8 @@ namespace LeetCodeBinaryTree
                 Console.Write("2.BFS Invert Traversal\n\t");
                 Console.Write("3.AverageOfLevels\n\t");
                 Console.Write("4.BinaryTreePath\n\t");
+                Console.Write("5.ValidateBinarySearchTree\n\t");
+                Console.Write("6.FlattenBinaryTreeToLinkedList\n\t");
                 Console.Write("0:Exit\nEnter Choice: ");
                 var input = Console.ReadLine();
                 switch (input)
@@ -29,6 +31,12 @@ namespace LeetCodeBinaryTree
                     case "4":
                         BinaryTreePath.Demo();
                         break;
+                    case "5":
+                        ValidateBinarySearchTree.Demo();
+                        break;
+                    case "6":
+                        FlattenBinaryTreeToLinkedList.Demo();
+                        break;                        
                     case "0":
                         return;
                 }
