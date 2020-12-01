@@ -19,6 +19,14 @@ namespace LeetCodeBinaryTree
             }
         }
 
+
+        //its basically a breadth first search (BFS)
+        //but the only difference is 
+        //in BFS in each iteration we dequeue an item and then put its left and right in queue for next iteration
+        //here we have to do 2 iteration.
+        //In each iteration of outer loop, we have to empty the queue to make sure we cover all the nodes of a level
+        //for each of these nodes put left and right in a separate temp queue, preparing for next itertaion (or level)
+        //after the end of inner loop we copy the contents from temp queue to main queue (actually insread of copy just update the pointers)
         public static IList<double> helper(TreeNode root)
         {
             if (root == null)

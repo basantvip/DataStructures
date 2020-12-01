@@ -6,6 +6,7 @@ using DataStructures;
 namespace LeetCodeBinaryTree
 {
     //https://leetcode.com/problems/binary-tree-paths/
+    //Given a binary tree, return all root-to-leaf paths.
     public class BinaryTreePath
     {       
         public static void Demo()

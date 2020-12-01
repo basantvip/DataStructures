@@ -113,5 +113,18 @@ namespace DataStructures
             // Pass initial space count as 0  
             print2DUtil(root, 0);
         }
+
+        public static TreeNode Find (TreeNode root, int val)
+        {
+            if (root == null)
+                return null;
+            if (root.val == val)
+                return root;
+            var left = Find(root.left, val);
+            if (left != null)
+                return left;
+            else
+                return Find(root.right, val);
+        }
     }
 }

@@ -15,6 +15,12 @@ namespace LeetCodeBinaryTree
                 Console.Write("4.BinaryTreePath\n\t");
                 Console.Write("5.ValidateBinarySearchTree\n\t");
                 Console.Write("6.FlattenBinaryTreeToLinkedList\n\t");
+                Console.Write("7.MaximumPathSum\n\t");
+                Console.Write("8.DiameterOfBinaryTree\n\t");
+                Console.Write("9.AccountsMerge\n\t");
+                Console.Write("10.BinaryTreeRightSideView\n\t");
+                Console.Write("11.NumberOfIslands\n\t");
+                Console.Write("12.LowestCommonAncestor\n\t");                
                 Console.Write("0:Exit\nEnter Choice: ");
                 var input = Console.ReadLine();
                 switch (input)
@@ -36,7 +42,25 @@ namespace LeetCodeBinaryTree
                         break;
                     case "6":
                         FlattenBinaryTreeToLinkedList.Demo();
-                        break;                        
+                        break;
+                    case "7":
+                        MaximumPathSum.Demo();
+                        break;
+                    case "8":
+                        DiameterOfBinaryTree.Demo();
+                        break;
+                    case "9":
+                        AccountsMerge.Demo();
+                        break;
+                    case "10":
+                        BinaryTreeRightSideView.Demo();
+                        break;
+                    case "11":
+                        NumberOfIslands.Demo();
+                        break;
+                    case "12":
+                        LowestCommonAncestor.Demo();
+                        break;
                     case "0":
                         return;
                 }

@@ -7,6 +7,11 @@ namespace LeetCodeBinaryTree
 {
     public class BFS_Invert
     {       
+        //same as BFS, the only difference is, instead of putting of elements in result set
+        //we add to a stack, so that we can pop up in reverse order
+        //at the end just keep popping from the stack
+        //also while enqueuing left and right child of a nore, we start with right first and then left
+        //that's because in stack they would be popped left first and then right
         public static void Demo()
         {
             BinaryTree binarytree = new BinaryTree("3,9,20,12,18,15,7");
