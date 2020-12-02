@@ -20,7 +20,8 @@ namespace LeetCodeBinaryTree
                 Console.Write("9.AccountsMerge\n\t");
                 Console.Write("10.BinaryTreeRightSideView\n\t");
                 Console.Write("11.NumberOfIslands\n\t");
-                Console.Write("12.LowestCommonAncestor\n\t");                
+                Console.Write("12.LowestCommonAncestor\n\t");
+                Console.Write("13.BinaryTreeVerticalOrderTraversal\n\t");                
                 Console.Write("0:Exit\nEnter Choice: ");
                 var input = Console.ReadLine();
                 switch (input)
@@ -60,6 +61,9 @@ namespace LeetCodeBinaryTree
                         break;
                     case "12":
                         LowestCommonAncestor.Demo();
+                        break;
+                    case "13":
+                        BinaryTreeVerticalOrderTraversal.Demo();
                         break;
                     case "0":
                         return;
