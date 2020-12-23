@@ -101,8 +101,7 @@ namespace LeetCodeFB_LL
                 else
                     result_prev.next = result_curr; //else need to link current node to prev node
 
-                result_prev = result_curr;
-                IOMap.Add(curr, result_curr);
+                result_prev = result_curr;                
                 IOMapHash.Add(curr, result_curr);
                 curr = curr.next;
             }

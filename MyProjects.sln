@@ -11,7 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCodeFB_ArrStr", "LeetCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCodeFB_LL", "LeetCodeFB_LL\LeetCodeFB_LL.csproj", "{2736731D-3285-4386-A3F4-9A55B2D1776C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeetCodeBinaryTree", "LeetCodeBinaryTree\LeetCodeBinaryTree.csproj", "{FF88CA65-498B-4248-8FC5-3AB5A1D3A96B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCodeBinaryTree", "LeetCodeBinaryTree\LeetCodeBinaryTree.csproj", "{FF88CA65-498B-4248-8FC5-3AB5A1D3A96B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LC_Recursion", "LC_Recursion\LC_Recursion.csproj", "{62DDD6A6-FF27-489A-9603-F1E6EDF9F9C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Misc", "Misc\Misc.csproj", "{A503FCD1-3F57-419D-88C6-AF9DCAB8DB59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterestingProblems", "InterestingProblems\InterestingProblems.csproj", "{6209CF9B-48F1-4D25-B63B-86F5EF9B8296}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{FF88CA65-498B-4248-8FC5-3AB5A1D3A96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF88CA65-498B-4248-8FC5-3AB5A1D3A96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF88CA65-498B-4248-8FC5-3AB5A1D3A96B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62DDD6A6-FF27-489A-9603-F1E6EDF9F9C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62DDD6A6-FF27-489A-9603-F1E6EDF9F9C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62DDD6A6-FF27-489A-9603-F1E6EDF9F9C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62DDD6A6-FF27-489A-9603-F1E6EDF9F9C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A503FCD1-3F57-419D-88C6-AF9DCAB8DB59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A503FCD1-3F57-419D-88C6-AF9DCAB8DB59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A503FCD1-3F57-419D-88C6-AF9DCAB8DB59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A503FCD1-3F57-419D-88C6-AF9DCAB8DB59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6209CF9B-48F1-4D25-B63B-86F5EF9B8296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6209CF9B-48F1-4D25-B63B-86F5EF9B8296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6209CF9B-48F1-4D25-B63B-86F5EF9B8296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6209CF9B-48F1-4D25-B63B-86F5EF9B8296}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -26,13 +26,18 @@ namespace LeetCodeBinaryTree
         {
             if (root == null)
                 return;
+            
+            //when you arrive at a node, append the current node to the path formed so far
             if (currentPath == "")
                 currentPath = root.val.ToString();
             else
                 currentPath = currentPath + "->" + root.val.ToString();
 
+            //if a leaf node found there is no more node below this node
+            // --> Add path formed so far to the result
             if (root.left == null && root.right == null)
                 result.Add(currentPath);
+            //check if there are more nodes to travel deeper
             helper(root.left, currentPath);
             helper(root.right, currentPath);
         }
