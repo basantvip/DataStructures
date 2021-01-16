@@ -15,7 +15,8 @@ namespace LC_Recursion
             var nums = new int[] { 1,2,3 };
             var result = new List<IList<int>>();
             //result = new PermutationClass().Permute(nums);
-            new PermutationClass().PermuteUsingHashSet(nums, new HashSet<int>(), result);            
+            //new PermutationClass().PermuteUsingHashSet(nums, new HashSet<int>(), result);
+            new PermutationClass().PermuteUsingReplacement(nums, 0, result);            
             Console.Write("Input:");
             foreach (var item in nums)
             {
@@ -112,6 +113,35 @@ namespace LC_Recursion
                     hashset.Remove(nums[i]);
                 }
             }
+        }
+
+        private void PermuteUsingReplacement(int[] nums, int startIndex, IList<IList<int>> result)
+        {
+            if (nums.Length == 0)
+                return;
+            
+            //here in each iteration of the recursion we are pinning one position called startIndex. 
+            //in a loop we swap values of startindex with all index after startIndex
+            //after swapping each time we call recursion for next startIndex (current startIndex + 1)
+            //note here the 2nd parameter to recursive call in not i, but startIndex +1
+            for (int i = startIndex; i < nums.Length; i++)
+            {
+                SwapElements(startIndex, i, nums);
+                if (i == nums.Length - 1)
+                    result.Add(new List<int>(nums.ToList()));
+                else
+                    PermuteUsingReplacement(nums, startIndex + 1, result);
+                SwapElements(startIndex, i, nums);
+            }
+        }
+
+        private void SwapElements(int i, int j, int[] nums)
+        {
+            if (i >= nums.Length || j >= nums.Length || i == j)
+                return;
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
         }
     }
 }

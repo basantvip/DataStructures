@@ -12,8 +12,8 @@ namespace LC_Recursion
                 Console.Write("1.PhoneNumberLetterCombination\n\t");
                 Console.Write("2.Permutation\n\t");
                 Console.Write("3.Subsets\n\t");
-                Console.Write("4.\n\t");
-                Console.Write("5.\n\t");
+                Console.Write("4.PermutationII\n\t");
+                Console.Write("5.RemoveInvalidParentheses\n\t");
                 Console.Write("6.\n\t");
                 Console.Write("7.\n\t");
                 Console.Write("8.\n\t");
@@ -36,10 +36,10 @@ namespace LC_Recursion
                         SubsetsClass.Demo();
                         break;
                     case "4":
-                        PhoneNumberLetterCombination.Demo();
+                        PermutationIIClass.Demo();
                         break;
                     case "5":
-                        PhoneNumberLetterCombination.Demo();
+                        RemoveInvalidParentheses.Demo();
                         break;
                     case "6":
                         PhoneNumberLetterCombination.Demo();

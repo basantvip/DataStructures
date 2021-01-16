@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LC_Recursion", "LC_Recursio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Misc", "Misc\Misc.csproj", "{A503FCD1-3F57-419D-88C6-AF9DCAB8DB59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterestingProblems", "InterestingProblems\InterestingProblems.csproj", "{6209CF9B-48F1-4D25-B63B-86F5EF9B8296}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterestingProblems", "InterestingProblems\InterestingProblems.csproj", "{6209CF9B-48F1-4D25-B63B-86F5EF9B8296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignProblems", "DesignProblems\DesignProblems.csproj", "{209ABB43-338A-4080-93EE-65264E5FA8A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{6209CF9B-48F1-4D25-B63B-86F5EF9B8296}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6209CF9B-48F1-4D25-B63B-86F5EF9B8296}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6209CF9B-48F1-4D25-B63B-86F5EF9B8296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{209ABB43-338A-4080-93EE-65264E5FA8A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{209ABB43-338A-4080-93EE-65264E5FA8A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{209ABB43-338A-4080-93EE-65264E5FA8A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{209ABB43-338A-4080-93EE-65264E5FA8A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
