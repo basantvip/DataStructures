@@ -7,26 +7,28 @@ namespace InterestingProblems
     {
         static void Main(string[] args)
         {
-            var input = new int[] { 1, 3, -1, -3, 5, 3, 6, 7 };
-            int k = 3;
+            //var input = new int[] { 1, 3, -1, -3, 5, 3, 6, 7 };
+            //int k = 3;
 
-            SlidingWindowMedian a = new SlidingWindowMedian();            
-            var result = a.GetMedian(input, k);
+            //SlidingWindowMedian a = new SlidingWindowMedian();            
+            //var result = a.GetMedian(input, k);
 
-            Console.Write("Input:");
-            foreach (var item in input)
-            {
-                Console.Write($"{item},");
-            }
-            Console.WriteLine($"\nk:{k}");
+            //Console.Write("Input:");
+            //foreach (var item in input)
+            //{
+            //    Console.Write($"{item},");
+            //}
+            //Console.WriteLine($"\nk:{k}");
 
-            Console.Write("Output:");
-            foreach (var item in result)
-            {
-                Console.Write($"{item},");
-            }
-            Console.WriteLine("");
-            Console.ReadLine();
+            //Console.Write("Output:");
+            //foreach (var item in result)
+            //{
+            //    Console.Write($"{item},");
+            //}
+            //Console.WriteLine("");
+            //Console.ReadLine();
+
+            EncodeDecode.Test();
         }
         
     }
@@ -272,6 +274,82 @@ namespace InterestingProblems
             var item = source.Peak();
             source.Delete(item);
             destination.Insert(item);
+        }
+    }
+
+    public class EncodeDecode
+    { 
+        public static void Test()
+        {
+            for (var i = 0; i < 5; i++)
+            {
+                Console.WriteLine("Hello, World");
+            }
+
+            string[] input = new string[3] { "a", "abc", "1" };
+
+            var result = toString(input);
+
+            Console.WriteLine(result);
+            
+            var newInput = fromString(result);
+
+            if (input.Length  != newInput.Length)
+                Console.WriteLine("Test Case Failed");
+
+            for (int i=0;i<input.Length;i++)
+            {
+                if (input[i] != newInput[i])
+                    Console.WriteLine("Test Case Failed");
+            }
+
+            Console.WriteLine("Test Case Passed");
+            
+
+        }
+
+        public static string toString(string[] input)
+        {
+            if (input.Length == 0)
+                return "";
+
+            var header = "";
+            var body = "";
+            foreach (var str in input)
+            {
+                if (header == "")
+                    header = $"{str.Length.ToString()}";
+                else
+                    header = $"{header},{str.Length.ToString()}";
+
+                body = $"{body}{str}";
+            }
+
+            return $"{header}:{body}";
+        }
+
+        public static string[] fromString(string input)
+        {
+
+            if (input == "")
+                return new string[] { };
+
+            string header = input.Split(':')[0];
+
+            var len = header.Split(',').Length;
+
+            string[] result = new string[len];
+
+            var last = 0; int index = 0;
+            foreach (var currentStr in header.Split(','))
+            {
+                int current = Convert.ToInt32(currentStr);
+                result[index++] = input.Substring(header.Length + 1 + last, current - last);
+                last = current;
+            }
+
+            return result;
+
         }
     }
 

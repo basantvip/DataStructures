@@ -10,7 +10,7 @@ namespace LeetCode
     {
         public static void Demo()
         {
-            var s = "1, -2, 3, 4, -1, 6, -2";            
+            var s = "-2,-5,7,-2,-3,2,6,-6";            
             int i;
             var list = s.Split(',').Where(t => int.TryParse(t, out i)).Select(t => int.Parse(t)).ToList();
             int left, right;
@@ -18,11 +18,11 @@ namespace LeetCode
             Console.WriteLine($"Left:{left}, Right:{right}");
         }
 
-        public static int GetMaxSumSubArray_Kadane(List<int> list)
-        {
-            int left, right;
-            return GetMaxSumSubArray_Kadane(list, out left, out right);            
-        }
+        //public static int GetMaxSumSubArray_Kadane(List<int> list)
+        //{
+        //    int left, right;
+        //    return GetMaxSumSubArray_Kadane(list, out left, out right);            
+        //}
 
         public static int GetMaxSumSubArray_Kadane(List<int> list, out int left, out int right)
         {

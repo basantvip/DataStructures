@@ -1,0 +1,107 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch DataStructures",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/DataStructures/bin/Debug/netcoreapp3.1/DataStructures.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/DataStructures",
+            "console": "integratedTerminal",
+            "stopAtEntry": false           
+        },
+        {
+            "name": ".NET Core Launch DesignProblems",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/DesignProblems/bin/Debug/netcoreapp3.1/DesignProblems.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/DesignProblems",
+            "console": "integratedTerminal",
+            "stopAtEntry": false           
+        },
+        {
+            "name": ".NET Core Launch InterestingProblems",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/InterestingProblems/bin/Debug/netcoreapp3.1/InterestingProblems.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/InterestingProblems",
+            "console": "integratedTerminal",
+            "stopAtEntry": false           
+        },
+        {
+            "name": ".NET Core Launch LC_Recursion",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/LC_Recursion/bin/Debug/netcoreapp3.1/LC_Recursion.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/LC_Recursion",
+            "console": "integratedTerminal",
+            "stopAtEntry": false           
+        },
+        {
+            "name": ".NET Core Launch LeetCode",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/LeetCode/bin/Debug/netcoreapp3.1/LeetCode.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/LeetCode",
+            "console": "integratedTerminal",
+            "stopAtEntry": false           
+        },
+        {
+            "name": ".NET Core Launch LeetCodeBinaryTree",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/LeetCodeBinaryTree/bin/Debug/netcoreapp3.1/LeetCodeBinaryTree.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/LeetCodeBinaryTree",
+            "console": "integratedTerminal",
+            "stopAtEntry": false           
+        },
+        {
+            "name": ".NET Core Launch LeetCodeFB_ArrStr",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/LeetCodeFB_ArrStr/bin/Debug/netcoreapp3.1/LeetCodeFB_ArrStr.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/LeetCodeFB_ArrStr",
+            "console": "integratedTerminal",
+            "stopAtEntry": false           
+        },
+        {
+            "name": ".NET Core Launch LeetCodeFB_LL",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/LeetCodeFB_LL/bin/Debug/netcoreapp3.1/LeetCodeFB_LL.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/LeetCodeFB_LL",
+            "console": "integratedTerminal",
+            "stopAtEntry": false           
+        },
+        {
+            "name": ".NET Core Launch Misc",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Misc/bin/Debug/netcoreapp3.1/Misc.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Misc",
+            "console": "integratedTerminal",
+            "stopAtEntry": false           
+        }        
+    ]
+}
